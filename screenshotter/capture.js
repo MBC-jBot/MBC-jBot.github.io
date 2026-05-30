@@ -222,6 +222,16 @@ const scenarios = [
               <next>
                 <block type="control_wait">
                   <value name="DURATION"><shadow type="math_number"><field name="NUM">2</field></shadow></value>
+                  <next>
+                    <block type="motor_stop">
+                      <field name="TYPE">MOTOR_L</field>
+                      <next>
+                        <block type="motor_stop">
+                          <field name="TYPE">MOTOR_R</field>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
                 </block>
               </next>
             </block>
