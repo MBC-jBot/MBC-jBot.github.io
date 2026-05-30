@@ -24,7 +24,7 @@
 
 以下是遙控程式的完整核心邏輯預覽，這個程式展示了如何使用各種條件判斷與數學運算來達成精確的全方位遙控（因為程式規模較大，強烈建議您直接下載 `.ob` 檔案，在軟體中查看與修改會最清楚喔！）：
 
-![PS2 遙控程式完整預覽](/images/blocks/first_program_huge.png)
+![PS2 遙控程式完整預覽](/images/blocks/first_program_huge.webp)
 
 > [!TIP]
 > **動手玩玩看**

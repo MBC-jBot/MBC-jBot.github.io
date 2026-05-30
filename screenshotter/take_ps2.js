@@ -264,8 +264,19 @@ const server = app.listen(PORT, async () => {
     });
 
     if (bbox && !bbox.error) {
+      // Resize viewport to ensure no clipping
+      await page.setViewport({
+        width: Math.ceil(bbox.width) + 100,
+        height: Math.ceil(bbox.height) + 100
+      });
+
+      // Wait a moment for Blockly to resize its SVG
+      await page.waitForTimeout(500);
+
       await page.screenshot({
-        path: path.join(outDir, "first_program_huge.png"),
+        path: path.join(outDir, "first_program_huge.webp"),
+        type: "webp",
+        quality: 90,
         clip: {
           x: bbox.x,
           y: bbox.y,
@@ -274,7 +285,7 @@ const server = app.listen(PORT, async () => {
         },
         omitBackground: true
       });
-      console.log("Saved first_program_huge.png");
+      console.log("Saved first_program_huge.webp");
     } else {
       console.error("Failed to render:", bbox ? bbox.error : "Unknown error");
     }
