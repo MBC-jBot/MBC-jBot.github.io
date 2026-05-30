@@ -11,7 +11,7 @@
 
 您可以點擊下方連結，下載我們為您準備好的完整範例程式：
 
-> 🎁 **[點此下載 PS2 遙控範例程式 (PS2_demo.ob)](/example/PS2_demo.ob)**
+> 🎁 **<a href="/example/PS2_demo.ob" download>點此下載 PS2 遙控範例程式 (PS2_demo.ob)</a>**
 
 ### 如何使用這個檔案？
 1. 下載上方的 `PS2_demo.ob` 檔案到您的電腦中。
