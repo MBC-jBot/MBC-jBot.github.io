@@ -1,0 +1,17 @@
+1.安裝主程式
+Windows 使用者請安裝 OpenBlock-Desktop_v2.6.3_win_x64.exe
+Mac 使用者請安裝 OpenBlock-Desktop_v2.6.3_mac_x64.7z
+
+2.安裝擴充指令
+使用一鍵快速安裝
+或是將擴充指令包的資料夾手動複製到主程式根目錄下
+C:\OpenBlockDesktop\external-resources\extensions
+
+3.安裝驅動程式
+首次開啟程式需點擊主程式右上方"齒輪"圖案內"安裝驅動程式"
+確保CH340晶片能正確被電腦識別
+
+4.呼叫機器人套件指令
+將主程式調整為編程模式，在主程式右上方處，
+選取擴充套件，在主程式左下方處，
+點選JBC_BOT指令即可
