@@ -31,7 +31,8 @@ export default defineConfig({
           { text: '2. 聲光與螢幕顯示', link: '/guide/blocks/display' },
           { text: '3. 感測器與按鈕', link: '/guide/blocks/sensor' },
           { text: '4. PS2 遙控與伺服馬達', link: '/guide/blocks/remote' },
-          { text: '5. 進階：序列埠與編碼器', link: '/guide/blocks/advanced' }
+          { text: '5. 進階：序列埠與編碼器', link: '/guide/blocks/advanced' },
+          { text: '6. 下載第一個程式試試看吧', link: '/guide/blocks/first-program' }
         ]
       },
       {
