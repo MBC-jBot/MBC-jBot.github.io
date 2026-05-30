@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Screenshotter</title>
+  <script src="openblock-blocks-main/blockly_uncompressed_vertical.js"></script>
+  <script src="openblock-blocks-main/msg/messages.js"></script>
+  <script src="openblock-blocks-main/msg/scratch_msgs.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/vertical_extensions.js"></script>
+  <script src="openblock-blocks-main/blocks_common/math.js"></script>
+  <script src="openblock-blocks-main/blocks_common/matrix.js"></script>
+  <script src="openblock-blocks-main/blocks_common/note.js"></script>
+  <script src="openblock-blocks-main/blocks_common/text.js"></script>
+  <script src="openblock-blocks-main/blocks_common/colour.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/control.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/event.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/motion.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/looks.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/procedures.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/operators.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/sound.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/sensing.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/data.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/device.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/stdint.js"></script>
+  <script src="openblock-blocks-main/blocks_vertical/extensions.js"></script>
+  <style>
+    body, html { margin: 0; padding: 0; overflow: hidden; background: transparent; }
+    #blocklyDiv { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; }
+    .blocklySvg { background-color: transparent !important; }
+    .blocklyMainBackground { stroke: none !important; fill: transparent !important; }
+    .blocklyToolboxDiv, .blocklyScrollbarBackground, .blocklyScrollbarHandle, .blocklyTrashIcon { display: none !important; }
+  </style>
+</head>
+<body>
+  <div id="blocklyDiv"></div>
+
+  <script>
+    // 1. Mock ScratchMsgs for the user's translations.js
+    Blockly.ScratchMsgs = { locales: { "zh-tw": {} } };
+  </script>
+
+  <!-- 2. Load user's extension files via relative path -->
+  <script src="../JBC_Bot_V1/translations.js"></script>
+  <script src="../JBC_Bot_V1/blocks.js"></script>
+
+  <script>
+    // 3. Apply translations to standard Blockly.Msg
+    registerBlocksMessages(Blockly);
+    if (Blockly.ScratchMsgs && Blockly.ScratchMsgs.locales["zh-tw"]) {
+      Object.assign(Blockly.Msg, Blockly.ScratchMsgs.locales["zh-tw"]);
+    }
+
+    // Mock field_slider using FieldNumber for scratch-blocks
+    Blockly.FieldSlider = function(value, min, max, precision) {
+      Blockly.FieldSlider.superClass_.constructor.call(this, value, min, max, precision);
+    };
+    goog.inherits(Blockly.FieldSlider, Blockly.FieldNumber);
+    Blockly.FieldSlider.fromJson = function(options) {
+      return new Blockly.FieldSlider(options['value'], options['min'], options['max'], options['precision']);
+    };
+    if (Blockly.Field && Blockly.Field.register) {
+      Blockly.Field.register('field_slider', Blockly.FieldSlider);
+    }
+
+    // Mock Start Block for screenshots (Arduino)
+    Blockly.Blocks['event_whenarduinobegin'] = {
+      init: function() {
+        this.jsonInit({
+          "message0": "當 Arduino 啟動",
+          "nextStatement": null,
+          "colour": "#FFBF00",
+          "extensions": ["shape_hat"]
+        });
+      }
+    };
+
+    // Mock serial_print block
+    Blockly.Blocks['serial_print'] = {
+      init: function() {
+        this.jsonInit({
+          "message0": "透過序列埠列印 %1",
+          "args0": [
+            {
+              "type": "input_value",
+              "name": "TEXT"
+            }
+          ],
+          "previousStatement": null,
+          "nextStatement": null,
+          "colour": "#5CB1D6"
+        });
+      }
+    };
+
+    // 4. Register the custom blocks
+    registerBlocks(Blockly);
+
+    // 5. Initialize Blockly workspace with Scratch 3.0 renderer
+    const workspace = Blockly.inject('blocklyDiv', {
+      media: 'openblock-blocks-main/media/',
+      readOnly: false,
+      scrollbars: false,
+      trashcan: false
+    });
+
+    // 6. Expose render function for Puppeteer
+    window.renderWorkspace = function(xmlString) {
+      workspace.clear();
+      try {
+        const dom = Blockly.Xml.textToDom(xmlString);
+        Blockly.Xml.domToWorkspace(dom, workspace);
+        
+        // Force inline inputs for all blocks to match Scratch 3.0
+        const blocks = workspace.getAllBlocks(false);
+        for (let i = 0; i < blocks.length; i++) {
+          if (blocks[i].setInputsInline) {
+            blocks[i].setInputsInline(true);
+          }
+        }
+      } catch (e) {
+        console.error("Render Error: " + (e.stack || e));
+      }
+    };
+
+    window.getWorkspaceBBox = function() {
+      try {
+        const metrics = workspace.getMetrics();
+        // Translate workspace so blocks are at top-left with some padding
+        workspace.translate(
+          -metrics.contentLeft + 20,
+          -metrics.contentTop + 20
+        );
+
+        // After translation, the content starts at x:20, y:20
+        return {
+          x: 0,
+          y: 0,
+          width: metrics.contentWidth + 40,
+          height: metrics.contentHeight + 40
+        };
+      } catch (e) {
+        return { error: e.message || e.toString() };
+      }
+    };
+  </script>
+</body>
+</html>

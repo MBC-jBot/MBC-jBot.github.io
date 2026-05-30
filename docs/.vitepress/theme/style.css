@@ -1,0 +1,53 @@
+/* Custom Brand Colors for JBC Bot */
+:root {
+  /* 新版 VitePress 變數 */
+  --vp-c-brand-1: #646cff;
+  --vp-c-brand-2: #747bff;
+  --vp-c-brand-3: #8a91ff;
+  --vp-c-brand-soft: rgba(100, 108, 255, 0.14);
+  
+  /* 舊版 VitePress 相容變數 */
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-dark: #535bf2;
+  
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: #646cff;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: #747bff;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: #646cff;
+  
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #646cff 30%, #8a91ff);
+}
+
+.dark {
+  /* 新版 VitePress 變數 */
+  --vp-c-brand-1: #747bff;
+  --vp-c-brand-2: #8a91ff;
+  --vp-c-brand-3: #9ea4ff;
+  --vp-c-brand-soft: rgba(100, 108, 255, 0.16);
+  
+  /* 舊版 VitePress 相容變數 */
+  --vp-c-brand: #747bff;
+  --vp-c-brand-light: #8a91ff;
+  --vp-c-brand-dark: #646cff;
+}
+
+.VPFeature {
+  background-color: var(--vp-c-brand-soft) !important;
+  border-radius: 16px !important;
+  border: 1px solid var(--vp-c-brand-3) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--vp-c-brand-soft) !important;
+  border-color: var(--vp-c-brand-1) !important;
+}
+

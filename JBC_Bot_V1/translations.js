@@ -1,0 +1,78 @@
+function getInterfaceTranslations () {
+    return {
+        "en": {
+            "jbc_bot_v1.description": "COOL JBC_BOT_V1"
+        },
+        "zh-tw": {
+            "jbc_bot_v1.description": "COOL JBC_BOT_V1"
+        }
+    };
+}
+
+function registerScratchExtensionTranslations () {
+    return {};
+}
+
+function registerBlocksMessages (Blockly) {
+    Object.assign(Blockly.ScratchMsgs.locales["zh-tw"],
+        {
+            "JBC_BOT_V1_BUTTON": "按鈕",
+            "JBC_BOT_V1_VOLTAGE": "電壓",
+            "JBC_BOT_V1_MOTOR": "馬達",
+            "JBC_BOT_V1_LED": "燈光",
+            "JBC_BOT_V1_LINE_SENSOR": "紅外線感測器",
+            "JBC_BOT_V1_PS2": "PS2搖桿",
+            "JBC_BOT_V1_VL53":"雷射",
+            "JBC_BOT_V1_SERIAL": "串口通訊",
+            "BUTTON_PRESS": "按鈕是否被按下",
+            "LINE_SINGLE": "%1紅外線感應器數值",
+            "LINE_RIGHT": "右邊",
+            "LINE_LEFT": "左邊",
+            "MOTOR_RUN": "馬達%1跑速度%2",
+            "MOTOR_RUN2": "馬達跑左%1右%2",
+            "MOTOR_STOP": "馬達%1剎車%2",
+            "MOTOR_DEG": "馬達%1編碼器數值",
+            "MOTOR_RESET_DEG": "重置馬達%1編碼器數值",
+            "MOTOR_RIGHT": "右",
+            "MOTOR_LEFT": "左",
+            "MOTOR_SLIDE_WORD": "滑行",
+            "MOTOR_LOCK_WORD": "煞停",
+            "MOTOR_AVG": "平均",
+            "MOTOR_ALL": "全部",
+            "LED_SETCOLOR": "設定LED第%1顆 顏色 %2",
+            "LED_CLEAR": "清除所有LED",
+            "SERVO_DEG": "伺服馬達%1轉到%2度",
+            "SERVO_1": "1號",
+            "SERVO_2": "2號",
+            "VOLTAGE_READ": "電池電壓大小",
+            "PS2_ISCONNECTED": "PS2 是否已連接?",
+            "PS2_CIRCLE": "圓形",
+            "PS2_CROSS": "叉號",
+            "PS2_DOWN": "下",
+            "PS2_GETBUTTON": "PS2 %1 按鍵被按下?",
+            "PS2_GETJOYSTICK": "PS2 獲取搖桿 %1",
+            "PS2_LEFT": "左",
+            "PS2_RIGHT": "右",
+            "PS2_SELECT": "選擇 (Select)",
+            "PS2_SQUARE": "方塊",
+            "PS2_START": "開始 (Start)",
+            "PS2_TRIANGLE": "三角",
+            "PS2_UP": "上",
+            "VL53L0_READDATA": "VL53L0雷射距離數值",
+            "SERIAL_PRINT":"傳數據%2%1給電腦顯示",
+            "SERIAL_LN":"換行",
+            "SERIAL_NO_LN":"不換行",
+            "JBC_BOT_V1_OLED": "OLED 顯示器",
+            "OLED_CLEAR": "清空 OLED 螢幕",
+            "OLED_PRINT": "OLED 座標 x:%1 y:%2 顯示文字:%3",
+            "OLED_PRINT_NUM": "OLED 座標 x:%1 y:%2 顯示數字:%3",
+        }
+    );
+    return Blockly;
+}
+
+if (typeof module !== 'undefined') {
+    module.exports = {getInterfaceTranslations};
+}
+exports = registerScratchExtensionTranslations;
+exports = registerBlocksMessages;

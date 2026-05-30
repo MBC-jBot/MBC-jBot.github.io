@@ -1,0 +1,64 @@
+#######################################
+# Syntax Coloring Map For JBC_Bot
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+JBC_Bot	KEYWORD1
+Bot	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+setMotor	KEYWORD2
+setMotors	KEYWORD2
+resetEncoders	KEYWORD2
+setLED	KEYWORD2
+clearLEDs	KEYWORD2
+readLineSensor	KEYWORD2
+isPS2Connected	KEYWORD2
+isPS2ButtonPressed	KEYWORD2
+getPS2Stick	KEYWORD2
+readPS2	KEYWORD2
+getDistance	KEYWORD2
+getEncoder	KEYWORD2
+setServo	KEYWORD2
+getBatteryVoltage	KEYWORD2
+isButtonPressed	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+MOTOR_L	LITERAL1
+MOTOR_R	LITERAL1
+ENC_L	LITERAL1
+ENC_R	LITERAL1
+ENC_AVG	LITERAL1
+ENC_ALL	LITERAL1
+BRAKE	LITERAL1
+SENSOR_L	LITERAL1
+SENSOR_R	LITERAL1
+SERVO_1	LITERAL1
+SERVO_2	LITERAL1
+PSB_SELECT	LITERAL1
+PSB_L3	LITERAL1
+PSB_R3	LITERAL1
+PSB_START	LITERAL1
+PSB_PAD_UP	LITERAL1
+PSB_PAD_RIGHT	LITERAL1
+PSB_PAD_DOWN	LITERAL1
+PSB_PAD_LEFT	LITERAL1
+PSB_L2	LITERAL1
+PSB_R2	LITERAL1
+PSB_L1	LITERAL1
+PSB_R1	LITERAL1
+PSB_TRIANGLE	LITERAL1
+PSB_CIRCLE	LITERAL1
+PSB_CROSS	LITERAL1
+PSB_SQUARE	LITERAL1
+PSS_RX	LITERAL1
+PSS_RY	LITERAL1
+PSS_LX	LITERAL1
+PSS_LY	LITERAL1
