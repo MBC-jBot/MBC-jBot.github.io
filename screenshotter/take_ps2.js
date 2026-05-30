@@ -248,6 +248,8 @@ const server = app.listen(PORT, async () => {
       args: ['--no-sandbox']
     });
     const page = await browser.newPage();
+    page.on('console', msg => console.log('[PAGE CONSOLE]', msg.text()));
+    page.on('pageerror', err => console.log('[PAGE ERROR]', err.toString()));
     await page.goto('http://localhost:' + PORT + '/screenshotter/index.html', { waitUntil: 'networkidle0' });
 
     console.log("Rendering PS2_demo...");

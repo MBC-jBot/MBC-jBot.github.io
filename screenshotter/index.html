@@ -93,6 +93,32 @@
       }
     };
 
+    // Mock arduino_data_dataConstrain
+    Blockly.Blocks['arduino_data_dataConstrain'] = {
+      init: function() {
+        this.jsonInit({
+          "message0": "限制 %1 在 %2 到 %3 之間",
+          "args0": [
+            {
+              "type": "input_value",
+              "name": "DATA"
+            },
+            {
+              "type": "input_value",
+              "name": "ARG0"
+            },
+            {
+              "type": "input_value",
+              "name": "ARG1"
+            }
+          ],
+          "output": "Number",
+          "outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+          "colour": "#FF8C1A"
+        });
+      }
+    };
+
     // 4. Register the custom blocks
     registerBlocks(Blockly);
 
