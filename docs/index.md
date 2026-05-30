@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "🤖 MBC-jBot"
+  name: "MBC-jBot"
   image:
     src: /images/cover.webp
     alt: MBC-jBot Cover Image
