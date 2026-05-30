@@ -9,7 +9,7 @@
    * **Mac 使用者**：請安裝 `OpenBlock-Desktop_v2.6.3_mac_x64.7z`
 2. **安裝擴充包**：您可以使用「一鍵快速安裝」，或是將擴充指令包的資料夾手動複製到主程式根目錄下（例如：`C:\OpenBlockDesktop\external-resources\extensions`）。
 
-![擴充包安裝目錄](/images/tutorial/extension_dir.png)
+![擴充包安裝目錄](/images/tutorial/extension_dir.webp)
 
 > 📥 **軟體下載連結**：
 > [點此下載主程式與擴充包](https://drive.google.com/drive/folders/1jJvmSl1R0mK_UXuw2hAYiLdEStOk1EM2?usp=drive_link)
@@ -20,7 +20,7 @@
 2. 將一端插入小車的 Type-C 孔，另一端插入電腦的 USB 插孔。
 3. **安裝驅動程式**：首次開啟程式，請點擊主程式右上方的「⚙️ 齒輪」圖案，選擇「安裝驅動程式」，確保 CH340 晶片能正確被電腦識別。
 
-![安裝驅動](/images/tutorial/driver_install.png)
+![安裝驅動](/images/tutorial/driver_install.webp)
 
 > 如果點擊後仍無法識別，您也可以手動下載 [👉 CH340 驅動程式](https://drive.google.com/drive/folders/1IQjFcSHTmrgY4PyfSliELT39hWaP1skf?usp=sharing) 進行安裝。
 
@@ -28,18 +28,18 @@
 為了讓軟體認識我們的小車，請依照以下步驟設定：
 
 1. **調整為編程模式**：確保主程式處於「上傳模式」（如下圖箭頭處）。
-![切換模式](/images/tutorial/mode_switch.png)
+![切換模式](/images/tutorial/mode_switch.webp)
 
 2. **選擇主控板**：點選左下角的「選擇設備」，在清單中找到並點擊 **「Arduino UNO」**。
-![選擇設備](/images/tutorial/select_device.png)
-![選擇 UNO](/images/tutorial/select_uno.png)
+![選擇設備](/images/tutorial/select_device.webp)
+![選擇 UNO](/images/tutorial/select_uno.webp)
 
 3. **添加擴充指令**：點選左下角的「添加擴展」，在選單中點擊 **「JBC_BOT」** 擴充積木。
-![添加擴充](/images/tutorial/add_extension.png)
-![添加 JBC_BOT](/images/tutorial/add_jbc.png)
+![添加擴充](/images/tutorial/add_extension.webp)
+![添加 JBC_BOT](/images/tutorial/add_jbc.webp)
 
 設定完成後，您的畫面左側就會出現滿滿的綠色 JBC_BOT 專屬積木囉！
-![正常畫面](/images/tutorial/normal_screen.png)
+![正常畫面](/images/tutorial/normal_screen.webp)
 
 ## 第四步：連接小車並讓它前進！
 現在我們已經準備好軟體環境了。請點擊上方工具列的「連線」，選擇對應的 COM 序列埠完成連線！
