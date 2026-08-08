@@ -14,6 +14,7 @@
 > 📥 **軟體下載連結**：
 > [點此下載主程式與擴充包](https://drive.google.com/drive/folders/1jJvmSl1R0mK_UXuw2hAYiLdEStOk1EM2?usp=drive_link)
 > *(內含主程式安裝檔與專屬擴充包)*
+> **✨ 最新更新：已上傳 260808 版本一鍵安裝檔，新增馬達控制功能！**
 
 ## 第二步：安裝驅動與連線
 1. 請拿出盒內的 **Type-C 傳輸線**。

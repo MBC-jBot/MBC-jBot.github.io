@@ -3,3 +3,11 @@ node_modules/
 docs/.vitepress/dist
 docs/.vitepress/cache
 .bin/
+
+# Graphify
+graphify-out/
+
+# Installers and Backups
+*.exe
+JBC_Bot_V1_*
+

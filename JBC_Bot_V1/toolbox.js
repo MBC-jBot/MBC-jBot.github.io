@@ -12,6 +12,28 @@ function registerToolboxs () {
 </category>
 
 <category name="%{BKY_JBC_BOT_V1_MOTOR}" id="JBC_BOT_V1_MOTOR" colour="#4e92f2" secondaryColour="#4e92f2">
+    <block type="motor_move_distance" id="motor_move_distance">
+        <value name="CM">
+            <shadow type="math_number"><field name="NUM">10</field></shadow>
+        </value>
+        <value name="SPEED_L">
+            <shadow type="speed_number"><field name="NUM">50</field></shadow>
+        </value>
+        <value name="SPEED_R">
+            <shadow type="speed_number"><field name="NUM">50</field></shadow>
+        </value>
+    </block>
+    <block type="motor_turn_degrees" id="motor_turn_degrees">
+        <value name="DEG">
+            <shadow type="math_number"><field name="NUM">90</field></shadow>
+        </value>
+        <value name="SPEED_L">
+            <shadow type="speed_number"><field name="NUM">40</field></shadow>
+        </value>
+        <value name="SPEED_R">
+            <shadow type="speed_number"><field name="NUM">-40</field></shadow>
+        </value>
+    </block>
     <block type="motor_run" id="motor_run">
         <value name="SPEED">
             <shadow type="speed_number">
@@ -34,6 +56,15 @@ function registerToolboxs () {
     <block type="motor_stop" id="motor_stop"></block>
     <block type="motor_deg" id="motor_deg"></block>
     <block type="motor_reset_deg" id="motor_reset_deg"></block>
+    <block type="motor_sync_mode" id="motor_sync_mode"></block>
+    <block type="motor_set_geometry" id="motor_set_geometry">
+        <value name="WHEEL_DIA">
+            <shadow type="math_number"><field name="NUM">34</field></shadow>
+        </value>
+        <value name="AXLE_TRACK">
+            <shadow type="math_number"><field name="NUM">91</field></shadow>
+        </value>
+    </block>
     <sep gap="32"></sep>
     <block type="servo_deg" id="servo_seg">
         <value name="DEG">

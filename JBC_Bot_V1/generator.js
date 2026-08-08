@@ -54,6 +54,39 @@ function registerGenerators (Blockly) {
         return `Bot.resetEncoders(${type});\n`;
     };
 
+    Blockly.Arduino.motor_sync_mode = function (block) {
+        Blockly.Arduino.includes_.jbc_bot = '#include "JBC_Bot.h"';
+        Blockly.Arduino.setups_.jbc_bot = 'Bot.begin();';
+        const mode = this.getFieldValue('MODE');
+        return `Bot.setMotorSync(${mode});\n`;
+    };
+
+    Blockly.Arduino.motor_set_geometry = function (block) {
+        Blockly.Arduino.includes_.jbc_bot = '#include "JBC_Bot.h"';
+        Blockly.Arduino.setups_.jbc_bot = 'Bot.begin();';
+        const wheel = Blockly.Arduino.valueToCode(block, 'WHEEL_DIA', Blockly.Arduino.ORDER_ATOMIC) || '34.0';
+        const axle = Blockly.Arduino.valueToCode(block, 'AXLE_TRACK', Blockly.Arduino.ORDER_ATOMIC) || '91.0';
+        return `Bot.setGeometry(${wheel}, ${axle});\n`;
+    };
+
+    Blockly.Arduino.motor_move_distance = function (block) {
+        Blockly.Arduino.includes_.jbc_bot = '#include "JBC_Bot.h"';
+        Blockly.Arduino.setups_.jbc_bot = 'Bot.begin();';
+        const cm = Blockly.Arduino.valueToCode(block, 'CM', Blockly.Arduino.ORDER_ATOMIC) || '0';
+        const speedL = Blockly.Arduino.valueToCode(block, 'SPEED_L', Blockly.Arduino.ORDER_ATOMIC) || '50';
+        const speedR = Blockly.Arduino.valueToCode(block, 'SPEED_R', Blockly.Arduino.ORDER_ATOMIC) || '50';
+        return `Bot.moveDistance(${cm}, ${speedL}, ${speedR});\n`;
+    };
+
+    Blockly.Arduino.motor_turn_degrees = function (block) {
+        Blockly.Arduino.includes_.jbc_bot = '#include "JBC_Bot.h"';
+        Blockly.Arduino.setups_.jbc_bot = 'Bot.begin();';
+        const deg = Blockly.Arduino.valueToCode(block, 'DEG', Blockly.Arduino.ORDER_ATOMIC) || '0';
+        const speedL = Blockly.Arduino.valueToCode(block, 'SPEED_L', Blockly.Arduino.ORDER_ATOMIC) || '40';
+        const speedR = Blockly.Arduino.valueToCode(block, 'SPEED_R', Blockly.Arduino.ORDER_ATOMIC) || '-40';
+        return `Bot.turnDegrees(${deg}, ${speedL}, ${speedR});\n`;
+    };
+
     Blockly.Arduino.speed_number = function (block) {
         Blockly.Arduino.includes_.jbc_bot = '#include "JBC_Bot.h"';
         Blockly.Arduino.setups_.jbc_bot = 'Bot.begin();';

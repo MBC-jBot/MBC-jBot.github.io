@@ -84,10 +84,22 @@ class JBC_Bot {
     void begin();                                       
     void setMotor(uint8_t index, int8_t speed);         
     void setMotors(int8_t speedL, int8_t speedR);       
+    void setMotorSync(int sync);
+    void moveDistance(float cm, int8_t speedL, int8_t speedR);
+    void turnDegrees(float degrees, int8_t speedL, int8_t speedR);
+    void setGeometry(float wheelDiameter, float axleTrack);
+    void setDriveBasePID(float distKp, float distKi, float distKd, float headKp, float headKi, float headKd);
+    void _computePID();
     void resetEncoders(uint8_t index);                  
     void setLED(uint8_t index, uint8_t r, uint8_t g, uint8_t b);    
     void clearLEDs();                                   
     uint16_t readLineSensor(uint8_t index);             
+
+    void printDebugData();
+    float dbg_targetDistPos, dbg_currDistPos, dbg_distError;
+    float dbg_targetHeadPos, dbg_currHeadPos, dbg_headError;
+    float dbg_outL, dbg_outR;
+    int32_t dbg_encL, dbg_encR;
 
     bool isPS2Connected();                              
     bool isPS2ButtonPressed(uint16_t mask);             
@@ -131,6 +143,34 @@ class JBC_Bot {
     volatile uint8_t _servo_ticks[2];
 
   private:
+    int _syncMode;
+    
+    // Geometry
+    float _wheelDiameter;
+    float _axleTrack;
+    float _ticksPerMm;
+    float _ticksPerDegree;
+
+    // Targets & State
+    float _targetDistanceRate; // ticks per sec
+    float _targetHeadingRate;  // ticks per sec
+    float _targetDistancePos;  // absolute ticks
+    float _targetHeadingPos;   // absolute ticks
+    float _distErrorSum;
+    float _headErrorSum;
+    float _prevDistError;
+    float _prevHeadError;
+
+    // Observer State (Simplified for N20)
+    float _estSpeedL;
+    float _estSpeedR;
+    float _estCountL;
+    float _estCountR;
+
+    // PID constants
+    float _distKp, _distKi, _distKd;
+    float _headKp, _headKi, _headKd;
+
     uint8_t _ledBuffer[12];
     uint8_t _userLED0Color[3];
     uint8_t _userLED1Color[3];

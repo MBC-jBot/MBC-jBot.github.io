@@ -48,6 +48,7 @@ ISR(TIMER2_COMPA_vect) {
     break;
   default:
     servo_rest_counter++;
+    Bot._computePID(); // Called every ~4ms for 250Hz observer/PID
     if (servo_rest_counter > 3) {
       PORTC |= (1 << 1);
       OCR2A = Bot._servo_ticks[0];
@@ -59,6 +60,29 @@ ISR(TIMER2_COMPA_vect) {
 }
 
 JBC_Bot::JBC_Bot() {
+  _syncMode = 1; // 預設開啟絕對同步
+  _wheelDiameter = 34.0;
+  _axleTrack = 91.0;
+  _ticksPerMm = 640.0 / (3.14159 * 34.0);
+  _ticksPerDegree = (_axleTrack * 3.14159 / 360.0) * _ticksPerMm;
+  
+  _targetDistanceRate = 0;
+  _targetHeadingRate = 0;
+  _targetDistancePos = 0;
+  _targetHeadingPos = 0;
+  _distErrorSum = 0;
+  _headErrorSum = 0;
+  _prevDistError = 0;
+  _prevHeadError = 0;
+
+  _estSpeedL = 0;
+  _estSpeedR = 0;
+  _estCountL = 0;
+  _estCountR = 0;
+
+  _distKp = 1.0; _distKi = 0.1; _distKd = 0.01; // 放寬前進追蹤，Kd 降至極低避免微小抖動
+  _headKp = 1.5; _headKi = 0.5; _headKd = 0.01; // 轉向(同步) Kp 調為 1.5 兼顧直行與獨立輪控制，Kd 降至極低消除高頻抖動
+
   _encCount[0] = 0;
   _encCount[1] = 0;
   _servo_ticks[0] = 94;
@@ -370,8 +394,11 @@ uint16_t JBC_Bot::_readADC(uint8_t ch) {
   return ADC;
 }
 
-// 50->0.49V, 328->3.2V, 480->4.68V
 void JBC_Bot::_checkBattery() {
+  static unsigned long lastCheck = 0;
+  if (millis() - lastCheck < 1000) return; // 每秒只檢查一次電池，避免 ADC 阻塞與誤判
+  lastCheck = millis();
+
   uint16_t adc = _readADC(3);
   if (adc < 50 || adc > 480)
     _status.lowBat = false;
@@ -406,8 +433,8 @@ void JBC_Bot::_setMotorRaw(uint8_t index, int8_t speed) {
       OCR1A = 0;
       OCR1B = pwm_val;
     } else {
-      OCR1A = 0;
-      OCR1B = 0;
+      OCR1A = 255;
+      OCR1B = 255;
     }
   }
 
@@ -422,23 +449,302 @@ void JBC_Bot::_setMotorRaw(uint8_t index, int8_t speed) {
       OCR0B = 0;
       OCR0A = pwm_val;
     } else {
-      OCR0B = 0;
-      OCR0A = 0;
+      OCR0B = 255;
+      OCR0A = 255;
     }
   }
 }
 
+void JBC_Bot::setMotorSync(int sync) {
+  if (sync && !_syncMode) {
+    _distErrorSum = 0;
+    _headErrorSum = 0;
+    _prevDistError = 0;
+    _prevHeadError = 0;
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+      _estCountL = _encCount[0];
+      _estCountR = _encCount[1];
+    }
+    _targetDistancePos = (_estCountL + _estCountR) / 2.0;
+    _targetHeadingPos = (_estCountL - _estCountR) / 2.0;
+  }
+  _syncMode = sync;
+}
+
+void JBC_Bot::setGeometry(float wheelDiameter, float axleTrack) {
+  _wheelDiameter = wheelDiameter;
+  _axleTrack = axleTrack;
+  _ticksPerMm = 640.0 / (3.14159 * _wheelDiameter); // assuming 640 ticks per rev
+  _ticksPerDegree = (_axleTrack * 3.14159 / 360.0) * _ticksPerMm;
+}
+
+void JBC_Bot::setDriveBasePID(float distKp, float distKi, float distKd, float headKp, float headKi, float headKd) {
+  _distKp = distKp; _distKi = distKi; _distKd = distKd;
+  _headKp = headKp; _headKi = headKi; _headKd = headKd;
+}
+
+void JBC_Bot::_computePID() {
+  if (!_syncMode) return;
+
+  int32_t currentEncL, currentEncR;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    currentEncL = _encCount[0];
+    currentEncR = _encCount[1];
+  }
+
+  // Simplified Observer (State Estimator)
+  // Simple low-pass filter on speed to prevent N20 hunting
+  float dt = 0.005; // 5ms approx
+  float measuredSpeedL = (currentEncL - _estCountL) / dt;
+  float measuredSpeedR = (currentEncR - _estCountR) / dt;
+  
+  _estSpeedL = _estSpeedL * 0.7 + measuredSpeedL * 0.3;
+  _estSpeedR = _estSpeedR * 0.7 + measuredSpeedR * 0.3;
+  
+  _estCountL = currentEncL;
+  _estCountR = currentEncR;
+
+  // Decoupled Control (Distance & Heading) Absolute Position Tracking
+  _targetDistancePos += _targetDistanceRate * dt;
+  _targetHeadingPos += _targetHeadingRate * dt;
+
+  float currentDistancePos = (_estCountL + _estCountR) / 2.0;
+  float currentHeadingPos = (_estCountL - _estCountR) / 2.0;
+
+  // 動態軌跡牽引 (Dynamic Target Clamping):
+  // 如果車體被外力卡死，虛擬目標位置不應該無限往前跑，最多允許超前 100 步
+  float distError = _targetDistancePos - currentDistancePos;
+  if (distError > 100.0) {
+    distError = 100.0;
+    _targetDistancePos = currentDistancePos + 100.0;
+  } else if (distError < -100.0) {
+    distError = -100.0;
+    _targetDistancePos = currentDistancePos - 100.0;
+  }
+  
+  float headError = _targetHeadingPos - currentHeadingPos;
+
+  _distErrorSum += distError * dt;
+  _headErrorSum += headError * dt;
+  
+  // Anti-windup
+  if (_distErrorSum > 2000) _distErrorSum = 2000;
+  if (_distErrorSum < -2000) _distErrorSum = -2000;
+  if (_headErrorSum > 2000) _headErrorSum = 2000;
+  if (_headErrorSum < -2000) _headErrorSum = -2000;
+
+  float dDist = (distError - _prevDistError) / dt;
+  float dHead = (headError - _prevHeadError) / dt;
+  _prevDistError = distError;
+  _prevHeadError = headError;
+
+  float distTorque = _distKp * distError + _distKi * _distErrorSum + _distKd * dDist;
+  float headTorque = _headKp * headError + _headKi * _headErrorSum + _headKd * dHead;
+
+  // Synthesize motor outputs
+  float ffL = (_targetDistanceRate + _targetHeadingRate) * 100.0 / 3000.0;
+  float ffR = (_targetDistanceRate - _targetHeadingRate) * 100.0 / 3000.0;
+  
+  float finalL = ffL + distTorque + headTorque;
+  float finalR = ffR + distTorque - headTorque;
+
+  // 靜止死區 (Resting Deadband)：如果目標速度為 0，且位置誤差極小 (僅為編碼器量化雜訊)，
+  // 強制中斷電流輸出，徹底消除馬達靜止時微弱來回震盪產生的高頻尖銳異音。
+  if (_targetDistanceRate == 0 && _targetHeadingRate == 0 && abs(distError) <= 4.0 && abs(headError) <= 4.0) {
+    finalL = 0;
+    finalR = 0;
+    _distErrorSum = 0;
+    _headErrorSum = 0;
+  } else {
+    // 總體靜摩擦力補償 (Total Friction Compensation)
+    // 只要系統判定需要出力 (finalL/R 超過極小值)，就直接疊加上靜摩擦電壓
+    // 這確保馬達絕對不會進入「有微弱電壓卻推不動」的尖叫區間
+    if (finalL > 0.5) finalL += 15.0;
+    else if (finalL < -0.5) finalL -= 15.0;
+    
+    if (finalR > 0.5) finalR += 15.0;
+    else if (finalR < -0.5) finalR -= 15.0;
+  }
+
+  // 輸出死區 (Output Deadband)
+  if (abs(finalL) < 8.0) finalL = 0;
+  if (abs(finalR) < 8.0) finalR = 0;
+
+  // 優先保障車頭轉向 (Proportional Scaling Anti-Windup)
+  // 當車子極速前進 (例如指令 100,100) 時，PID 計算出來的總電壓很容易超過 100。
+  // 為了完美保持車子的「迴轉半徑」與「轉向比例」，必須使用等比例縮放 (Proportional Scaling)
+  // 找出左右輪絕對值的最大值，如果超過 100，則將兩輪同乘一個縮小係數。
+  float max_val = max(abs(finalL), abs(finalR));
+  if (max_val > 100.0) {
+    float scale = 100.0 / max_val;
+    finalL *= scale;
+    finalR *= scale;
+  }
+
+  // 最終絕對硬性防呆 Clamp
+  if (finalL > 100) finalL = 100;
+  if (finalL < -100) finalL = -100;
+  if (finalR > 100) finalR = 100;
+  if (finalR < -100) finalR = -100;
+
+  dbg_targetDistPos = _targetDistancePos;
+  dbg_currDistPos = currentDistancePos;
+  dbg_distError = distError;
+  dbg_headError = headError;
+  dbg_outL = finalL;
+  dbg_outR = finalR;
+  dbg_encL = currentEncL;
+  dbg_encR = currentEncR;
+
+  _setMotorRaw(MOTOR_L, (int8_t)finalL);
+  _setMotorRaw(MOTOR_R, (int8_t)finalR);
+}
+
 void JBC_Bot::setMotor(uint8_t index, int8_t speed) {
   _checkBattery();
+  if (_syncMode && speed == BRAKE) {
+    _syncMode = 0;
+  }
   _setMotorRaw(index, speed);
   _updateLEDs();
 }
 
 void JBC_Bot::setMotors(int8_t speedL, int8_t speedR) {
   _checkBattery();
-  _setMotorRaw(MOTOR_L, speedL);
-  _setMotorRaw(MOTOR_R, speedR);
+  if (_syncMode) {
+    if (speedL == BRAKE || speedR == BRAKE) {
+      _syncMode = 0;
+      _setMotorRaw(MOTOR_L, speedL);
+      _setMotorRaw(MOTOR_R, speedR);
+    } else {
+      // Map arbitrary speed 0-100 to target tick rate
+      // 100 speed ~ 3000 ticks/sec
+      float targetL = speedL * 30.0;
+      float targetR = speedR * 30.0;
+      float newDistanceRate = (targetL + targetR) / 2.0;
+      float newHeadingRate = (targetL - targetR) / 2.0;
+
+      // 如果突然要停下來 (原本有速度，現在是 0)，強制更新虛擬目標為當前物理位置，防止回彈抖動 (Spring-back)
+      if (targetL == 0 && targetR == 0 && (_targetDistanceRate != 0 || _targetHeadingRate != 0)) {
+         ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+            _targetDistancePos = (_encCount[0] + _encCount[1]) / 2.0;
+            _targetHeadingPos  = (_encCount[0] - _encCount[1]) / 2.0;
+         }
+         _distErrorSum = 0;
+         _headErrorSum = 0;
+         _prevDistError = 0;
+         _prevHeadError = 0;
+      }
+      // 如果從「轉向狀態」切換回「直行狀態」，必須重置車頭基準。
+      // 否則，系統會試圖補償轉向期間所累積的微小角度誤差，導致切回直行 (例如 100,100) 時車身走歪。
+      else if (newHeadingRate == 0 && _targetHeadingRate != 0) {
+         ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+            _targetHeadingPos = (_encCount[0] - _encCount[1]) / 2.0;
+         }
+         _headErrorSum = 0;
+         _prevHeadError = 0;
+      }
+      
+      _targetDistanceRate = newDistanceRate;
+      _targetHeadingRate = newHeadingRate;
+      
+      // 移除 _setMotorRaw 直接設定，避免與中斷內的 PID 互相搶佔 (Tug-of-war) 產生嚴重高頻抖動
+    }
+  } else {
+    _setMotorRaw(MOTOR_L, speedL);
+    _setMotorRaw(MOTOR_R, speedR);
+  }
   _updateLEDs();
+}
+
+void JBC_Bot::moveDistance(float cm, int8_t speedL, int8_t speedR) {
+  if (cm == 0) return;
+  
+  // 防呆 1：兩輪速度一前一後且完全抵銷，會導致原地自轉，數學上不會有距離位移
+  if (speedL + speedR == 0) return;
+  
+  // 防呆 2：學童通常距離只會輸入正數，用速度正負號來決定方向
+  // 因此強制取絕對值，然後由速度總和決定方向
+  cm = abs(cm);
+  if ((speedL + speedR) < 0) {
+    cm = -cm;
+  }
+
+  float ticksToMove = (cm * 10.0) * _ticksPerMm;
+  
+  setMotorSync(1);
+  int32_t currentEncL, currentEncR;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    currentEncL = _encCount[0];
+    currentEncR = _encCount[1];
+  }
+  float startPos = (currentEncL + currentEncR) / 2.0;
+  float targetPos = startPos + ticksToMove;
+  
+  setMotors(speedL, speedR);
+  
+  unsigned long lastPrintTime = millis();
+  while (true) {
+    if (millis() - lastPrintTime >= 50) {
+      printDebugData();
+      lastPrintTime = millis();
+    }
+
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+      currentEncL = _encCount[0];
+      currentEncR = _encCount[1];
+    }
+    float currPos = (currentEncL + currentEncR) / 2.0;
+    if (cm > 0 && currPos >= targetPos) break;
+    if (cm < 0 && currPos <= targetPos) break;
+    delay(5);
+  }
+  setMotors(BRAKE, BRAKE);
+}
+
+void JBC_Bot::turnDegrees(float degrees, int8_t speedL, int8_t speedR) {
+  if (degrees == 0) return;
+  
+  // 防呆 1：兩輪同速同向，數學上只會平移不會旋轉
+  if (speedL == speedR) return;
+  
+  // 防呆 2：學童通常角度只會輸入正數，用左右輪速差來決定旋轉方向
+  // 強制取絕對值，如果左輪比右輪慢 (左轉)，角度設為負數
+  degrees = abs(degrees);
+  if (speedL < speedR) {
+    degrees = -degrees;
+  }
+
+  float ticksToTurn = degrees * _ticksPerDegree;
+  
+  setMotorSync(1);
+  int32_t currentEncL, currentEncR;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    currentEncL = _encCount[0];
+    currentEncR = _encCount[1];
+  }
+  float startHeading = (currentEncL - currentEncR) / 2.0;
+  float targetHeading = startHeading + ticksToTurn;
+  
+  setMotors(speedL, speedR);
+  
+  unsigned long lastPrintTime = millis();
+  while (true) {
+    if (millis() - lastPrintTime >= 50) {
+      printDebugData();
+      lastPrintTime = millis();
+    }
+
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+      currentEncL = _encCount[0];
+      currentEncR = _encCount[1];
+    }
+    float currHeading = (currentEncL - currentEncR) / 2.0;
+    if (degrees > 0 && currHeading >= targetHeading) break;
+    if (degrees < 0 && currHeading <= targetHeading) break;
+    delay(5);
+  }
+  setMotors(BRAKE, BRAKE);
 }
 
 void JBC_Bot::resetEncoders(uint8_t index) {
@@ -529,6 +835,10 @@ bool JBC_Bot::isButtonPressed() {
 }
 
 void JBC_Bot::_updateLEDs() {
+  static unsigned long lastLEDUpdate = 0;
+  if (millis() - lastLEDUpdate < 30) return; // 限制最高更新率為 ~33Hz，避免癱瘓中斷與破壞 WS2812 Latch
+  lastLEDUpdate = millis();
+
   uint8_t *p = _ledBuffer;
 
   if (_status.lowBat) {
@@ -845,4 +1155,15 @@ uint8_t JBC_Bot::getPS2Stick(uint8_t stick) {
 bool JBC_Bot::readPS2() {
   _pollPS2Hardware();
   return _status.ps2Connected;
+}
+
+void JBC_Bot::printDebugData() {
+  Serial.print("TL:"); Serial.print(dbg_targetDistPos);
+  Serial.print(" CL:"); Serial.print(dbg_currDistPos);
+  Serial.print(" eD:"); Serial.print(dbg_distError);
+  Serial.print(" eH:"); Serial.print(dbg_headError);
+  Serial.print(" EL:"); Serial.print(dbg_encL);
+  Serial.print(" ER:"); Serial.print(dbg_encR);
+  Serial.print(" outL:"); Serial.print(dbg_outL);
+  Serial.print(" outR:"); Serial.println(dbg_outR);
 }

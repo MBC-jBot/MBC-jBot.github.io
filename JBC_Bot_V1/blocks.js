@@ -156,6 +156,97 @@ function registerBlocks(Blockly) {
         }
     };
 
+    Blockly.Blocks.motor_sync_mode = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.MOTOR_SYNC_MODE,
+                args0: [
+                    {
+                        type: 'field_dropdown',
+                        name: 'MODE',
+                        options: [
+                            [Blockly.Msg.OFF, '0'],
+                            [Blockly.Msg.ON, '1']]
+                    }
+                ],
+                colour: motor_Color,
+                secondaryColour: motor_SecondaryColour,
+                extensions: ['shape_statement']
+            });
+        }
+    };
+
+    Blockly.Blocks.motor_set_geometry = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.MOTOR_SET_GEOMETRY,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'WHEEL_DIA'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'AXLE_TRACK'
+                    }
+                ],
+                colour: motor_Color,
+                secondaryColour: motor_SecondaryColour,
+                extensions: ['shape_statement']
+            });
+        }
+    };
+
+    Blockly.Blocks.motor_move_distance = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.MOTOR_MOVE_DISTANCE,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'CM'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'SPEED_L'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'SPEED_R'
+                    }
+                ],
+                colour: motor_Color,
+                secondaryColour: motor_SecondaryColour,
+                extensions: ['shape_statement']
+            });
+        }
+    };
+
+    Blockly.Blocks.motor_turn_degrees = {
+        init: function () {
+            this.jsonInit({
+                message0: Blockly.Msg.MOTOR_TURN_DEGREES,
+                args0: [
+                    {
+                        type: 'input_value',
+                        name: 'DEG'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'SPEED_L'
+                    },
+                    {
+                        type: 'input_value',
+                        name: 'SPEED_R'
+                    }
+                ],
+                colour: motor_Color,
+                secondaryColour: motor_SecondaryColour,
+                extensions: ['shape_statement']
+            });
+        }
+    };
+
     Blockly.Blocks.speed_number = {
         init: function () {
             this.jsonInit({
