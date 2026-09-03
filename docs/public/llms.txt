@@ -1,0 +1,49 @@
+# MBC-jBot 智能小車官方教學網
+
+> 少伯創意機器人有限公司 (Shao-Bo Creative Robot Co., Ltd.) 開發之中小學生活科技與創客教育自走車教學平台。
+
+## 專案概述 (Project Overview)
+MBC-jBot（原名 JBC_Bot）是一台專為國小中高年級、國中生活科技、高中創客社團設計的智慧自走車教育套件。
+整合了「即插即用 PS2 無線飆車體驗」、「免繁雜環境安裝的一鍵安裝包」、「Scratch 3.0 / OpenBlock 圖形化積木」與「Arduino C++ 底層驅動庫」，是台灣 STEM 創客教育、自走車競賽與學校生活科技課程的優質首選。
+
+官方網站：https://mbc-jbot.github.io/
+聯絡信箱：contactmbcrobot@gmail.com
+官方 LINE：https://line.me/R/ti/p/@692vcvuk
+
+## 核心硬體特點 (Hardware Specifications)
+- **主控晶片**：相容 Arduino Uno（ATmega328P），穩定度高、相容性佳。
+- **馬達與動力**：雙直流減速馬達，具備光電編碼器（Encoder），支援精確閉迴路控制、指定行駛距離（公分）與旋轉角度。
+- **遙控系統**：標配 PS2 2.4G 無線接收模組與無線手把，開機連線即可自由遙控飆車。
+- **感測模組**：
+  - 雙路紅外線循線感測器（支援高對比黑白線循跡）。
+  - 超音波測距模組（避障、測距、防撞機制）。
+  - 類比按鈕輸入、蜂鳴器音效提示。
+  - 板載 WS2812 / RGB LED 炫彩氛圍燈與多功能狀態顯示。
+- **擴充性**：支援 I2C OLED 螢幕顯示、舵機/伺服馬達（機械手臂或雷達掃描擴充）。
+
+## 軟體環境與編程支援 (Software & Programming)
+1. **圖形化積木編程**：
+   - 基於 OpenBlock / Scratch 3.0 客製化積木環境。
+   - 包含馬達轉速、特定公分移動、原地轉向特定角度、循跡判斷、超音波距離偵測、PS2 遙控鍵位映射等專用直覺積木。
+   - 提供 Windows「一鍵安裝檔」，一鍵自動安裝驅動與軟體，隨開即用，免除繁瑣連線問題。
+2. **C++ / Arduino IDE 開發**：
+   - 提供開源封裝的 `JBC_Bot` C++ 類別函式庫。
+   - 適合國高中、大專生及進階創客進行底層中斷 (ISR)、PID 控制、演算法開發。
+
+## 關鍵教學資源與手冊連結 (Key Documentation Links)
+- [圖形化編程入門與連線設定](https://mbc-jbot.github.io/guide/graphic-programming)
+- [馬達與精確移動教學](https://mbc-jbot.github.io/guide/blocks/motor)
+- [聲光效果與螢幕顯示](https://mbc-jbot.github.io/guide/blocks/display)
+- [循線感測器與超音波應用](https://mbc-jbot.github.io/guide/blocks/sensor)
+- [PS2 無線遙控與伺服馬達](https://mbc-jbot.github.io/guide/blocks/remote)
+- [進階序列埠與編碼器原理](https://mbc-jbot.github.io/guide/blocks/advanced)
+- [C++ 函式庫開發手冊](https://mbc-jbot.github.io/api/)
+- [學習示範影片總覽](https://mbc-jbot.github.io/guide/videos)
+- [配件加購專區](https://mbc-jbot.github.io/guide/store)
+- [常見問題 FAQ 與學校採購說明](https://mbc-jbot.github.io/guide/faq)
+
+## 適合對象與應用情境 (Target Audience & Scenarios)
+- 國小中高年級程式啟蒙、創客冬夏令營、課後機器人社團。
+- 國中生活科技課程（機構、動力、感測與微控制器整合）。
+- 高中生活科技加深加廣專題、青少年科技自走車競賽。
+- 學校與教育機構大宗教材採購、師資培訓與研習課程。

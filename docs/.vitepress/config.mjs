@@ -1,8 +1,61 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "MBC-jBot",
-  description: "超好玩的智能小車教學",
+  title: "MBC-jBot 智能小車",
+  description: "少伯創意機器人 MBC-jBot 智能自走車教學官方網站。專為國小、國中與高中生活科技課程設計，結合 PS2 無線飆車、Scratch / OpenBlock 圖形化積木、雙編碼馬達閉迴路精確控制與 Arduino C++ 開發手冊。",
+  sitemap: {
+    hostname: 'https://mbc-jbot.github.io'
+  },
+  head: [
+    ['link', { rel: 'icon', href: '/images/company_logo.webp' }],
+    ['meta', { name: 'keywords', content: 'MBC-jBot, jBot, 少伯創意機器人, 智能小車, 自走車, Arduino, Scratch, OpenBlock, 積木程式, 生活科技, 創客教育, 機器人教材, PS2遙控車, 循線避障, 編碼器馬達' }],
+    ['meta', { name: 'author', content: '少伯創意機器人有限公司' }],
+    ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'zh_TW' }],
+    ['meta', { property: 'og:site_name', content: 'MBC-jBot 智能小車教學官方網站' }],
+    ['meta', { property: 'og:title', content: 'MBC-jBot 智能小車 | 國中小生活科技與創客程式教育首選' }],
+    ['meta', { property: 'og:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、Scratch 圖形積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
+    ['meta', { property: 'og:url', content: 'https://mbc-jbot.github.io' }],
+    ['meta', { property: 'og:image', content: 'https://mbc-jbot.github.io/images/company_logo.webp' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'MBC-jBot 智能小車 | 國中小生活科技與創客程式教育首選' }],
+    ['meta', { name: 'twitter:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、Scratch 圖形積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
+    ['meta', { name: 'twitter:image', content: 'https://mbc-jbot.github.io/images/company_logo.webp' }],
+    [
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mbc-jbot.github.io/#organization",
+            "name": "少伯創意機器人有限公司",
+            "url": "https://mbc-jbot.github.io",
+            "logo": "https://mbc-jbot.github.io/images/company_logo.webp",
+            "email": "contactmbcrobot@gmail.com"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mbc-jbot.github.io/#website",
+            "url": "https://mbc-jbot.github.io",
+            "name": "MBC-jBot 智能小車教學官方網站",
+            "publisher": { "@id": "https://mbc-jbot.github.io/#organization" },
+            "inLanguage": "zh-TW"
+          },
+          {
+            "@type": "Product",
+            "@id": "https://mbc-jbot.github.io/#product",
+            "name": "MBC-jBot 智能小車",
+            "description": "專為中小學創客與生活科技教育設計的智慧自走車，支援 Scratch/OpenBlock 積木程式、C++、PS2無線搖桿操控與雙編碼器馬達閉迴路控制。",
+            "brand": { "@id": "https://mbc-jbot.github.io/#organization" },
+            "category": "Educational Robotics & STEM Kits"
+          }
+        ]
+      })
+    ]
+  ],
   themeConfig: {
     logo: '/images/company_logo.webp',
     search: {
@@ -10,7 +63,8 @@ export default defineConfig({
     },
     nav: [
       { text: '🎈 圖形化編程', link: '/guide/graphic-programming' },
-      { text: '💻 C++ 開發手冊', link: '/api/' }
+      { text: '💻 C++ 開發手冊', link: '/api/' },
+      { text: '❓ 常見問題', link: '/guide/faq' }
     ],
     socialLinks: [
       { icon: { svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="color: #00B900;"><path fill="currentColor" d="M24 10.304c0-5.369-5.383-9.738-12-9.738S0 4.935 0 10.304c0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.122.303.079.771.039 1.085l-.171 1.027c-.053.31-.242 1.192 1.045.652 1.288-.54 6.96-4.096 10.02-7.397C23.595 14.2 24 12.253 24 10.304zM10.231 13.06H7.369V7.545h.923v4.593h1.939v.922zm1.657 0h-.924V7.545h.924v5.515zm4.996-3.791l-2.127 3.791h-.923V7.545h.924v3.666l2.127-3.666h.924v5.515h-.925v-3.791zM18.823 8.467h-1.939v1.378h1.939v.923h-1.939v1.37h1.939v.922h-2.863V7.545h2.863v.922z"/></svg>' }, link: 'https://line.me/R/ti/p/@692vcvuk' },
@@ -58,7 +112,14 @@ export default defineConfig({
         items: [
           { text: '配件加購與升級', link: '/guide/store' }
         ]
+      },
+      {
+        text: '❓ 常見問題與採購',
+        items: [
+          { text: '常見問題 FAQ', link: '/guide/faq' }
+        ]
       }
     ]
   }
 })
+
