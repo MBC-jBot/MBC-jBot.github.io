@@ -43,14 +43,6 @@ export default defineConfig({
             "name": "MBC-jBot 智能小車教學官方網站",
             "publisher": { "@id": "https://mbc-jbot.github.io/#organization" },
             "inLanguage": "zh-TW"
-          },
-          {
-            "@type": "Product",
-            "@id": "https://mbc-jbot.github.io/#product",
-            "name": "MBC-jBot 智能小車",
-            "description": "專為中小學創客與生活科技教育設計的智慧自走車，支援 Scratch/OpenBlock 積木程式、C++、PS2無線搖桿操控與雙編碼器馬達閉迴路控制。",
-            "brand": { "@id": "https://mbc-jbot.github.io/#organization" },
-            "category": "Educational Robotics & STEM Kits"
           }
         ]
       })
