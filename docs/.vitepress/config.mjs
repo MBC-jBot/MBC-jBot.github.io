@@ -55,6 +55,7 @@ export default defineConfig({
     },
     nav: [
       { text: '🎈 圖形化編程', link: '/guide/graphic-programming' },
+      { text: '🌐 網頁版編程', link: 'https://jbot-block-ide.mbcrobot.workers.dev' },
       { text: '💻 C++ 開發手冊', link: '/api/' },
       { text: '❓ 常見問題', link: '/guide/faq' }
     ],
