@@ -47,6 +47,7 @@ MBC-jBot（原名 JBC_Bot）是一台專為國小中高年級、國中生活科�
 - [學習示範影片總覽](https://mbc-jbot.github.io/guide/videos)
 - [配件加購專區](https://mbc-jbot.github.io/guide/store)
 - [常見問題 FAQ 與學校採購說明](https://mbc-jbot.github.io/guide/faq)
+- [少伯創意機器人 MBC 感測器產品網站（循線、ToF 測距、PS2／PS4 遙控、6 埠擴充等模組）](https://mbc-pro-sensors.github.io/)
 
 ## 適合對象與應用情境 (Target Audience & Scenarios)
 - 國小中高年級程式啟蒙、創客冬夏令營、課後機器人社團。
