@@ -22,11 +22,13 @@ export default defineConfig({
     ['meta', { property: 'og:title', content: 'MBC-jBot 智能小車 | 國中小生活科技與創客程式教育首選' }],
     ['meta', { property: 'og:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、免安裝網頁版積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
     ['meta', { property: 'og:url', content: 'https://mbc-jbot.github.io' }],
-    ['meta', { property: 'og:image', content: 'https://mbc-jbot.github.io/images/company_logo.webp' }],
+    ['meta', { property: 'og:image', content: 'https://mbc-jbot.github.io/images/og-cover.jpg' }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'MBC-jBot 智能小車 | 國中小生活科技與創客程式教育首選' }],
     ['meta', { name: 'twitter:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、免安裝網頁版積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
-    ['meta', { name: 'twitter:image', content: 'https://mbc-jbot.github.io/images/company_logo.webp' }],
+    ['meta', { name: 'twitter:image', content: 'https://mbc-jbot.github.io/images/og-cover.jpg' }],
     [
       'script',
       { type: 'application/ld+json' },
@@ -53,6 +55,12 @@ export default defineConfig({
       })
     ]
   ],
+  // 每頁加 canonical（格式跟 sitemap 一樣：首頁與資料夾首頁用 /，其他頁 .html）
+  transformPageData(pageData) {
+    const url = 'https://mbc-jbot.github.io/' + pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(['link', { rel: 'canonical', href: url }])
+  },
   themeConfig: {
     logo: '/images/company_logo.webp',
     search: {
