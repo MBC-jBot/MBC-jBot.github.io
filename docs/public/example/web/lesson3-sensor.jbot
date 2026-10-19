@@ -1,0 +1,103 @@
+{
+ "format": "jbot-blocks",
+ "version": 1,
+ "savedAt": "2026-10-18T00:00:00.000Z",
+ "workspace": {
+  "blocks": {
+   "languageVersion": 0,
+   "blocks": [
+    {
+     "type": "jbot_setup",
+     "x": 40,
+     "y": 40,
+     "deletable": false,
+     "next": {
+      "block": {
+       "type": "jbot_init"
+      }
+     }
+    },
+    {
+     "type": "jbot_loop",
+     "x": 40,
+     "y": 136,
+     "deletable": false,
+     "next": {
+      "block": {
+       "type": "controls_if",
+       "extraState": {
+        "hasElse": true
+       },
+       "inputs": {
+        "IF0": {
+         "block": {
+          "type": "logic_compare",
+          "fields": {
+           "OP": "LT"
+          },
+          "inputs": {
+           "A": {
+            "block": {
+             "type": "jbot_laser_distance"
+            }
+           },
+           "B": {
+            "shadow": {
+             "type": "math_number",
+             "fields": {
+              "NUM": 100
+             }
+            }
+           }
+          }
+         }
+        },
+        "DO0": {
+         "block": {
+          "type": "jbot_motor_stop",
+          "fields": {
+           "type": "MOTOR_L",
+           "mode": "BRAKE"
+          },
+          "next": {
+           "block": {
+            "type": "jbot_motor_stop",
+            "fields": {
+             "type": "MOTOR_R",
+             "mode": "BRAKE"
+            }
+           }
+          }
+         }
+        },
+        "ELSE": {
+         "block": {
+          "type": "jbot_motor_run2",
+          "inputs": {
+           "speedL": {
+            "shadow": {
+             "type": "math_number",
+             "fields": {
+              "NUM": 50
+             }
+            }
+           },
+           "speedR": {
+            "shadow": {
+             "type": "math_number",
+             "fields": {
+              "NUM": 50
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,26 +1,31 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  lang: 'zh-TW',
   title: "MBC-jBot 智能小車",
-  description: "少伯創意機器人 MBC-jBot 智能自走車教學官方網站。專為國小、國中與高中生活科技課程設計，結合 PS2 無線飆車、Scratch / OpenBlock 圖形化積木、雙編碼馬達閉迴路精確控制與 Arduino C++ 開發手冊。",
+  markdown: {
+    container: { tipLabel: '提示', warningLabel: '注意', dangerLabel: '危險', infoLabel: '說明', detailsLabel: '詳細說明', noteLabel: '備註', importantLabel: '重要', cautionLabel: '小心' },
+    gfmAlerts: true,
+  },
+  description: "少伯創意機器人 MBC-jBot 智能自走車教學官方網站。專為國小、國中與高中生活科技課程設計，結合 PS2 無線飆車、免安裝網頁版與 MBC 圖控編程 安裝版圖形化積木、雙編碼馬達閉迴路精確控制與 Arduino C++ 開發手冊。",
   sitemap: {
     hostname: 'https://mbc-jbot.github.io'
   },
   head: [
     ['link', { rel: 'icon', href: '/images/company_logo.webp' }],
-    ['meta', { name: 'keywords', content: 'MBC-jBot, jBot, 少伯創意機器人, 智能小車, 自走車, Arduino, Scratch, OpenBlock, 積木程式, 生活科技, 創客教育, 機器人教材, PS2遙控車, 循線避障, 編碼器馬達' }],
+    ['meta', { name: 'keywords', content: 'MBC-jBot, jBot, 少伯創意機器人, 智能小車, 自走車, Arduino, MBC 圖控編程, 積木程式, 網頁版積木, 免安裝, 生活科技, 創客教育, 機器人教材, PS2遙控車, 循線避障, 編碼器馬達' }],
     ['meta', { name: 'author', content: '少伯創意機器人有限公司' }],
     ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'zh_TW' }],
     ['meta', { property: 'og:site_name', content: 'MBC-jBot 智能小車教學官方網站' }],
     ['meta', { property: 'og:title', content: 'MBC-jBot 智能小車 | 國中小生活科技與創客程式教育首選' }],
-    ['meta', { property: 'og:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、Scratch 圖形積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
+    ['meta', { property: 'og:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、免安裝網頁版積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
     ['meta', { property: 'og:url', content: 'https://mbc-jbot.github.io' }],
     ['meta', { property: 'og:image', content: 'https://mbc-jbot.github.io/images/company_logo.webp' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'MBC-jBot 智能小車 | 國中小生活科技與創客程式教育首選' }],
-    ['meta', { name: 'twitter:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、Scratch 圖形積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
+    ['meta', { name: 'twitter:description', content: '少伯創意機器人 MBC-jBot 智能自走車教學官方網站。結合 PS2 無線飆車、免安裝網頁版積木、雙編碼馬達精準控制與 Arduino C++ 手冊。' }],
     ['meta', { name: 'twitter:image', content: 'https://mbc-jbot.github.io/images/company_logo.webp' }],
     [
       'script',
@@ -51,10 +56,27 @@ export default defineConfig({
   themeConfig: {
     logo: '/images/company_logo.webp',
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        translations: {
+          button: { buttonText: '搜尋', buttonAriaLabel: '搜尋' },
+          modal: {
+            displayDetails: '顯示詳細內容', resetButtonTitle: '清除', backButtonTitle: '關閉搜尋',
+            noResultsText: '找不到相關結果', footer: { selectText: '選擇', navigateText: '切換', closeText: '關閉' },
+          },
+        },
+      },
     },
+    outline: { label: '本頁目錄' },
+    docFooter: { prev: '上一頁', next: '下一頁' },
+    sidebarMenuLabel: '選單',
+    returnToTopLabel: '回到頂端',
+    darkModeSwitchLabel: '深色模式',
+    lightModeSwitchTitle: '切換到淺色模式',
+    darkModeSwitchTitle: '切換到深色模式',
+    skipToContentLabel: '跳到主要內容',
     nav: [
-      { text: '🎈 圖形化編程', link: '/guide/graphic-programming' },
+      { text: '🎈 圖形化編程', link: '/guide/web-start' },
       { text: '🌐 網頁版編程', link: 'https://jbot-block-ide.mbcrobot.workers.dev' },
       { text: '💻 C++ 開發手冊', link: '/api/' },
       { text: '❓ 常見問題', link: '/guide/faq' }
@@ -75,13 +97,19 @@ export default defineConfig({
       {
         text: '🎈 基礎入門',
         items: [
-          { text: '環境準備與連線', link: '/guide/graphic-programming' },
+          { text: '開始使用：網頁版（免安裝）', link: '/guide/web-start' },
           { text: '1. 馬達與精確移動', link: '/guide/blocks/motor' },
           { text: '2. 聲光與螢幕顯示', link: '/guide/blocks/display' },
           { text: '3. 感測器與按鈕', link: '/guide/blocks/sensor' },
           { text: '4. PS2 遙控與伺服馬達', link: '/guide/blocks/remote' },
           { text: '5. 進階：序列埠與編碼器', link: '/guide/blocks/advanced' },
           { text: '6. 下載第一個程式試試看吧', link: '/guide/blocks/first-program' }
+        ]
+      },
+      {
+        text: '💾 安裝版（MBC 圖控編程）',
+        items: [
+          { text: '安裝與匯入 jBot 積木', link: '/guide/graphic-programming' }
         ]
       },
       {

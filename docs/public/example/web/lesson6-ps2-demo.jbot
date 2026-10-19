@@ -1,0 +1,771 @@
+{
+ "format": "jbot-blocks",
+ "version": 1,
+ "savedAt": "2026-10-18T00:00:00.000Z",
+ "workspace": {
+  "blocks": {
+   "languageVersion": 0,
+   "blocks": [
+    {
+     "type": "jbot_setup",
+     "x": 40,
+     "y": 40,
+     "deletable": false,
+     "next": {
+      "block": {
+       "type": "jbot_init"
+      }
+     }
+    },
+    {
+     "type": "jbot_loop",
+     "x": 40,
+     "y": 136,
+     "deletable": false,
+     "next": {
+      "block": {
+       "type": "controls_if",
+       "extraState": {
+        "hasElse": true
+       },
+       "inputs": {
+        "IF0": {
+         "block": {
+          "type": "jbot_ps2_button",
+          "fields": {
+           "button": "PSB_PAD_UP"
+          }
+         }
+        },
+        "DO0": {
+         "block": {
+          "type": "variables_set",
+          "fields": {
+           "VAR": {
+            "id": "var_speed"
+           }
+          },
+          "inputs": {
+           "VALUE": {
+            "shadow": {
+             "type": "math_number",
+             "fields": {
+              "NUM": 50
+             }
+            }
+           }
+          }
+         }
+        },
+        "ELSE": {
+         "block": {
+          "type": "controls_if",
+          "extraState": {
+           "hasElse": true
+          },
+          "inputs": {
+           "IF0": {
+            "block": {
+             "type": "jbot_ps2_button",
+             "fields": {
+              "button": "PSB_PAD_DOWN"
+             }
+            }
+           },
+           "DO0": {
+            "block": {
+             "type": "variables_set",
+             "fields": {
+              "VAR": {
+               "id": "var_speed"
+              }
+             },
+             "inputs": {
+              "VALUE": {
+               "shadow": {
+                "type": "math_number",
+                "fields": {
+                 "NUM": -50
+                }
+               }
+              }
+             }
+            }
+           },
+           "ELSE": {
+            "block": {
+             "type": "variables_set",
+             "fields": {
+              "VAR": {
+               "id": "var_speed"
+              }
+             },
+             "inputs": {
+              "VALUE": {
+               "shadow": {
+                "type": "math_number",
+                "fields": {
+                 "NUM": 0
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       },
+       "next": {
+        "block": {
+         "type": "controls_if",
+         "extraState": {
+          "hasElse": true
+         },
+         "inputs": {
+          "IF0": {
+           "block": {
+            "type": "jbot_ps2_button",
+            "fields": {
+             "button": "PSB_PAD_LEFT"
+            }
+           }
+          },
+          "DO0": {
+           "block": {
+            "type": "variables_set",
+            "fields": {
+             "VAR": {
+              "id": "var_turn"
+             }
+            },
+            "inputs": {
+             "VALUE": {
+              "shadow": {
+               "type": "math_number",
+               "fields": {
+                "NUM": -25
+               }
+              }
+             }
+            }
+           }
+          },
+          "ELSE": {
+           "block": {
+            "type": "controls_if",
+            "extraState": {
+             "hasElse": true
+            },
+            "inputs": {
+             "IF0": {
+              "block": {
+               "type": "jbot_ps2_button",
+               "fields": {
+                "button": "PSB_PAD_RIGHT"
+               }
+              }
+             },
+             "DO0": {
+              "block": {
+               "type": "variables_set",
+               "fields": {
+                "VAR": {
+                 "id": "var_turn"
+                }
+               },
+               "inputs": {
+                "VALUE": {
+                 "shadow": {
+                  "type": "math_number",
+                  "fields": {
+                   "NUM": 25
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "ELSE": {
+              "block": {
+               "type": "variables_set",
+               "fields": {
+                "VAR": {
+                 "id": "var_turn"
+                }
+               },
+               "inputs": {
+                "VALUE": {
+                 "shadow": {
+                  "type": "math_number",
+                  "fields": {
+                   "NUM": 0
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         },
+         "next": {
+          "block": {
+           "type": "controls_if",
+           "extraState": {
+            "hasElse": true
+           },
+           "inputs": {
+            "IF0": {
+             "block": {
+              "type": "jbot_ps2_button",
+              "fields": {
+               "button": "PSB_L1"
+              }
+             }
+            },
+            "DO0": {
+             "block": {
+              "type": "variables_set",
+              "fields": {
+               "VAR": {
+                "id": "var_speedL"
+               }
+              },
+              "inputs": {
+               "VALUE": {
+                "shadow": {
+                 "type": "math_number",
+                 "fields": {
+                  "NUM": 50
+                 }
+                }
+               }
+              }
+             }
+            },
+            "ELSE": {
+             "block": {
+              "type": "controls_if",
+              "extraState": {
+               "hasElse": true
+              },
+              "inputs": {
+               "IF0": {
+                "block": {
+                 "type": "jbot_ps2_button",
+                 "fields": {
+                  "button": "PSB_L2"
+                 }
+                }
+               },
+               "DO0": {
+                "block": {
+                 "type": "variables_set",
+                 "fields": {
+                  "VAR": {
+                   "id": "var_speedL"
+                  }
+                 },
+                 "inputs": {
+                  "VALUE": {
+                   "shadow": {
+                    "type": "math_number",
+                    "fields": {
+                     "NUM": -50
+                    }
+                   }
+                  }
+                 }
+                }
+               },
+               "ELSE": {
+                "block": {
+                 "type": "controls_if",
+                 "inputs": {
+                  "IF0": {
+                   "block": {
+                    "type": "logic_negate",
+                    "inputs": {
+                     "BOOL": {
+                      "block": {
+                       "type": "logic_compare",
+                       "fields": {
+                        "OP": "EQ"
+                       },
+                       "inputs": {
+                        "A": {
+                         "block": {
+                          "type": "jbot_ps2_stick",
+                          "fields": {
+                           "stick": "PSS_LY"
+                          }
+                         }
+                        },
+                        "B": {
+                         "shadow": {
+                          "type": "math_number",
+                          "fields": {
+                           "NUM": 0
+                          }
+                         }
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  },
+                  "DO0": {
+                   "block": {
+                    "type": "variables_set",
+                    "fields": {
+                     "VAR": {
+                      "id": "var_speedL"
+                     }
+                    },
+                    "inputs": {
+                     "VALUE": {
+                      "block": {
+                       "type": "math_arithmetic",
+                       "fields": {
+                        "OP": "MINUS"
+                       },
+                       "inputs": {
+                        "A": {
+                         "block": {
+                          "type": "jbot_ps2_stick",
+                          "fields": {
+                           "stick": "PSS_LY"
+                          }
+                         }
+                        },
+                        "B": {
+                         "shadow": {
+                          "type": "math_number",
+                          "fields": {
+                           "NUM": 128
+                          }
+                         }
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           },
+           "next": {
+            "block": {
+             "type": "controls_if",
+             "extraState": {
+              "hasElse": true
+             },
+             "inputs": {
+              "IF0": {
+               "block": {
+                "type": "jbot_ps2_button",
+                "fields": {
+                 "button": "PSB_R1"
+                }
+               }
+              },
+              "DO0": {
+               "block": {
+                "type": "variables_set",
+                "fields": {
+                 "VAR": {
+                  "id": "var_speedR"
+                 }
+                },
+                "inputs": {
+                 "VALUE": {
+                  "shadow": {
+                   "type": "math_number",
+                   "fields": {
+                    "NUM": 50
+                   }
+                  }
+                 }
+                }
+               }
+              },
+              "ELSE": {
+               "block": {
+                "type": "controls_if",
+                "extraState": {
+                 "hasElse": true
+                },
+                "inputs": {
+                 "IF0": {
+                  "block": {
+                   "type": "jbot_ps2_button",
+                   "fields": {
+                    "button": "PSB_R2"
+                   }
+                  }
+                 },
+                 "DO0": {
+                  "block": {
+                   "type": "variables_set",
+                   "fields": {
+                    "VAR": {
+                     "id": "var_speedR"
+                    }
+                   },
+                   "inputs": {
+                    "VALUE": {
+                     "shadow": {
+                      "type": "math_number",
+                      "fields": {
+                       "NUM": -50
+                      }
+                     }
+                    }
+                   }
+                  }
+                 },
+                 "ELSE": {
+                  "block": {
+                   "type": "controls_if",
+                   "inputs": {
+                    "IF0": {
+                     "block": {
+                      "type": "logic_negate",
+                      "inputs": {
+                       "BOOL": {
+                        "block": {
+                         "type": "logic_compare",
+                         "fields": {
+                          "OP": "EQ"
+                         },
+                         "inputs": {
+                          "A": {
+                           "block": {
+                            "type": "jbot_ps2_stick",
+                            "fields": {
+                             "stick": "PSS_RY"
+                            }
+                           }
+                          },
+                          "B": {
+                           "shadow": {
+                            "type": "math_number",
+                            "fields": {
+                             "NUM": 0
+                            }
+                           }
+                          }
+                         }
+                        }
+                       }
+                      }
+                     }
+                    },
+                    "DO0": {
+                     "block": {
+                      "type": "variables_set",
+                      "fields": {
+                       "VAR": {
+                        "id": "var_speedR"
+                       }
+                      },
+                      "inputs": {
+                       "VALUE": {
+                        "block": {
+                         "type": "math_arithmetic",
+                         "fields": {
+                          "OP": "MINUS"
+                         },
+                         "inputs": {
+                          "A": {
+                           "block": {
+                            "type": "jbot_ps2_stick",
+                            "fields": {
+                             "stick": "PSS_RY"
+                            }
+                           }
+                          },
+                          "B": {
+                           "shadow": {
+                            "type": "math_number",
+                            "fields": {
+                             "NUM": 128
+                            }
+                           }
+                          }
+                         }
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             },
+             "next": {
+              "block": {
+               "type": "jbot_motor_run",
+               "fields": {
+                "type": "MOTOR_L"
+               },
+               "inputs": {
+                "speed": {
+                 "block": {
+                  "type": "math_constrain",
+                  "inputs": {
+                   "VALUE": {
+                    "block": {
+                     "type": "math_arithmetic",
+                     "fields": {
+                      "OP": "ADD"
+                     },
+                     "inputs": {
+                      "A": {
+                       "block": {
+                        "type": "math_arithmetic",
+                        "fields": {
+                         "OP": "ADD"
+                        },
+                        "inputs": {
+                         "A": {
+                          "block": {
+                           "type": "variables_get",
+                           "fields": {
+                            "VAR": {
+                             "id": "var_speed"
+                            }
+                           }
+                          }
+                         },
+                         "B": {
+                          "block": {
+                           "type": "variables_get",
+                           "fields": {
+                            "VAR": {
+                             "id": "var_turn"
+                            }
+                           }
+                          }
+                         }
+                        }
+                       }
+                      },
+                      "B": {
+                       "block": {
+                        "type": "variables_get",
+                        "fields": {
+                         "VAR": {
+                          "id": "var_speedL"
+                         }
+                        }
+                       }
+                      }
+                     }
+                    }
+                   },
+                   "LOW": {
+                    "shadow": {
+                     "type": "math_number",
+                     "fields": {
+                      "NUM": -100
+                     }
+                    }
+                   },
+                   "HIGH": {
+                    "shadow": {
+                     "type": "math_number",
+                     "fields": {
+                      "NUM": 100
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               },
+               "next": {
+                "block": {
+                 "type": "jbot_motor_run",
+                 "fields": {
+                  "type": "MOTOR_R"
+                 },
+                 "inputs": {
+                  "speed": {
+                   "block": {
+                    "type": "math_constrain",
+                    "inputs": {
+                     "VALUE": {
+                      "block": {
+                       "type": "math_arithmetic",
+                       "fields": {
+                        "OP": "ADD"
+                       },
+                       "inputs": {
+                        "A": {
+                         "block": {
+                          "type": "math_arithmetic",
+                          "fields": {
+                           "OP": "MINUS"
+                          },
+                          "inputs": {
+                           "A": {
+                            "block": {
+                             "type": "variables_get",
+                             "fields": {
+                              "VAR": {
+                               "id": "var_speed"
+                              }
+                             }
+                            }
+                           },
+                           "B": {
+                            "block": {
+                             "type": "variables_get",
+                             "fields": {
+                              "VAR": {
+                               "id": "var_turn"
+                              }
+                             }
+                            }
+                           }
+                          }
+                         }
+                        },
+                        "B": {
+                         "block": {
+                          "type": "variables_get",
+                          "fields": {
+                           "VAR": {
+                            "id": "var_speedR"
+                           }
+                          }
+                         }
+                        }
+                       }
+                      }
+                     },
+                     "LOW": {
+                      "shadow": {
+                       "type": "math_number",
+                       "fields": {
+                        "NUM": -100
+                       }
+                      }
+                     },
+                     "HIGH": {
+                      "shadow": {
+                       "type": "math_number",
+                       "fields": {
+                        "NUM": 100
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 },
+                 "next": {
+                  "block": {
+                   "type": "serial_print",
+                   "fields": {
+                    "NEWLINE": "NO"
+                   },
+                   "inputs": {
+                    "VALUE": {
+                     "block": {
+                      "type": "variables_get",
+                      "fields": {
+                       "VAR": {
+                        "id": "var_speedL"
+                       }
+                      }
+                     }
+                    }
+                   },
+                   "next": {
+                    "block": {
+                     "type": "serial_print",
+                     "fields": {
+                      "NEWLINE": "NO"
+                     },
+                     "inputs": {
+                      "VALUE": {
+                       "shadow": {
+                        "type": "text",
+                        "fields": {
+                         "TEXT": ","
+                        }
+                       }
+                      }
+                     },
+                     "next": {
+                      "block": {
+                       "type": "serial_print",
+                       "fields": {
+                        "NEWLINE": "LN"
+                       },
+                       "inputs": {
+                        "VALUE": {
+                         "block": {
+                          "type": "variables_get",
+                          "fields": {
+                           "VAR": {
+                            "id": "var_speedR"
+                           }
+                          }
+                         }
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  "variables": [
+   {
+    "name": "speed",
+    "id": "var_speed"
+   },
+   {
+    "name": "turn",
+    "id": "var_turn"
+   },
+   {
+    "name": "speedL",
+    "id": "var_speedL"
+   },
+   {
+    "name": "speedR",
+    "id": "var_speedR"
+   }
+  ]
+ }
+}

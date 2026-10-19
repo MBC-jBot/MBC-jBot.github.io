@@ -7,9 +7,10 @@ MBC-jBot 的核心是一顆 `ATmega328P`，這意味著它與經典的 **Arduino
 *   **開發板設定 (Board)**：請在 Arduino IDE 中選擇 `Arduino Uno`。
 *   **核心庫 (Core)**：使用官方的 `Arduino AVR Boards` 即可。
 
-> 📥 **JBC_Bot 程式庫下載**： 
-> [點此下載 C++ 程式庫](https://drive.google.com/drive/folders/1jJvmSl1R0mK_UXuw2hAYiLdEStOk1EM2?usp=drive_link) 
-> (下載後請解壓到程式碼資料夾內)
+> 📥 **JBC_Bot 程式庫下載**：
+> <a href="/downloads/JBC_Bot.zip" download>點此下載 C++ 程式庫（JBC_Bot.zip）</a>
+>
+> 安裝方式：Arduino IDE 選單「**草稿碼 → 匯入程式庫 → 加入 .ZIP 程式庫…**」，選擇下載的 `JBC_Bot.zip` 即可（不用解壓縮）。這份程式庫跟網頁版、MBC 圖控編程用的是同一版。
 
 ## 2. 引入 JBC_Bot 程式庫
 要在程式中控制小車，您必須在檔案的最上方引入 `JBC_Bot` 程式庫：

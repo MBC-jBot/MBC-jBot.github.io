@@ -1,0 +1,99 @@
+{
+ "format": "jbot-blocks",
+ "version": 1,
+ "savedAt": "2026-10-18T00:00:00.000Z",
+ "workspace": {
+  "blocks": {
+   "languageVersion": 0,
+   "blocks": [
+    {
+     "type": "jbot_setup",
+     "x": 40,
+     "y": 40,
+     "deletable": false,
+     "next": {
+      "block": {
+       "type": "jbot_init",
+       "next": {
+        "block": {
+         "type": "jbot_led_set",
+         "fields": {
+          "index": "1"
+         },
+         "inputs": {
+          "r": {
+           "shadow": {
+            "type": "math_number",
+            "fields": {
+             "NUM": 255
+            }
+           }
+          },
+          "g": {
+           "shadow": {
+            "type": "math_number",
+            "fields": {
+             "NUM": 0
+            }
+           }
+          },
+          "b": {
+           "shadow": {
+            "type": "math_number",
+            "fields": {
+             "NUM": 0
+            }
+           }
+          }
+         },
+         "next": {
+          "block": {
+           "type": "jbot_oled_clear",
+           "next": {
+            "block": {
+             "type": "jbot_oled_print",
+             "inputs": {
+              "X": {
+               "shadow": {
+                "type": "math_number",
+                "fields": {
+                 "NUM": 0
+                }
+               }
+              },
+              "Y": {
+               "shadow": {
+                "type": "math_number",
+                "fields": {
+                 "NUM": 1
+                }
+               }
+              },
+              "TEXT": {
+               "shadow": {
+                "type": "text",
+                "fields": {
+                 "TEXT": "Hello"
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "type": "jbot_loop",
+     "x": 40,
+     "y": 304,
+     "deletable": false
+    }
+   ]
+  }
+ }
+}

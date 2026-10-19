@@ -4,7 +4,7 @@
 
 ## 專案概述 (Project Overview)
 MBC-jBot（原名 JBC_Bot）是一台專為國小中高年級、國中生活科技、高中創客社團設計的智慧自走車教育套件。
-整合了「即插即用 PS2 無線飆車體驗」、「免繁雜環境安裝的一鍵安裝包」、「Scratch 3.0 / OpenBlock 圖形化積木」與「Arduino C++ 底層驅動庫」，是台灣 STEM 創客教育、自走車競賽與學校生活科技課程的優質首選。
+整合了「即插即用 PS2 無線飆車體驗」、「免安裝的網頁版積木編程（Chrome / Edge 直接上傳）」、「MBC 圖控編程 安裝版（主程式＋匯入 jBot 積木包）」與「Arduino C++ 底層驅動庫」，是台灣 STEM 創客教育、自走車競賽與學校生活科技課程的優質首選。
 
 官方網站：https://mbc-jbot.github.io/
 聯絡信箱：contactmbcrobot@gmail.com
@@ -22,16 +22,22 @@ MBC-jBot（原名 JBC_Bot）是一台專為國小中高年級、國中生活科�
 - **擴充性**：支援 I2C OLED 螢幕顯示、舵機/伺服馬達（機械手臂或雷達掃描擴充）。
 
 ## 軟體環境與編程支援 (Software & Programming)
-1. **圖形化積木編程**：
-   - 基於 OpenBlock / Scratch 3.0 客製化積木環境。
+1. **圖形化積木編程（網頁版，主要推薦）**：
+   - 網址：https://jbot-block-ide.mbcrobot.workers.dev ，電腦版 Chrome 或 Edge 打開即可使用，Windows、Mac、Chromebook 皆可，不用安裝軟體。
+   - 瀏覽器內編譯（與 Arduino IDE 編出相同程式），透過 USB（Web Serial）直接上傳到小車；積木自動儲存、可存成 .jbot 檔。
+   - 支援馬達、編碼器、循線、雷射測距、彩燈、OLED 螢幕（英文與數字）、伺服馬達、PS2 遙控與 MBC I2C 感應器。
+2. **圖形化積木編程（安裝版）**：
+   - 安裝 MBC 圖控編程（少伯創意機器人自行開發的 Windows 積木軟體），再匯入 jBot 積木包（下載：https://mbc-jbot.github.io/downloads/mbc_jbot.abpkz ），積木與網頁版相同。
    - 包含馬達轉速、特定公分移動、原地轉向特定角度、循跡判斷、超音波距離偵測、PS2 遙控鍵位映射等專用直覺積木。
-   - 提供 Windows「一鍵安裝檔」，一鍵自動安裝驅動與軟體，隨開即用，免除繁瑣連線問題。
-2. **C++ / Arduino IDE 開發**：
+   - 安裝檔下載（Google 雲端硬碟）：https://drive.google.com/drive/folders/17N6sIzMt2uiSEI7hVB_qGaBW5gWlcCpo
+   - 軟體內建 CH340 等 USB 驅動程式安裝，自動偵測連接埠，可離線使用。使用手冊：https://mbcrobot.github.io/mbc-blockcode-guide/
+3. **C++ / Arduino IDE 開發**：
    - 提供開源封裝的 `JBC_Bot` C++ 類別函式庫。
    - 適合國高中、大專生及進階創客進行底層中斷 (ISR)、PID 控制、演算法開發。
 
 ## 關鍵教學資源與手冊連結 (Key Documentation Links)
-- [圖形化編程入門與連線設定](https://mbc-jbot.github.io/guide/graphic-programming)
+- [開始使用：網頁版（免安裝）](https://mbc-jbot.github.io/guide/web-start)
+- [安裝版：MBC 圖控編程＋jBot 積木](https://mbc-jbot.github.io/guide/graphic-programming)
 - [馬達與精確移動教學](https://mbc-jbot.github.io/guide/blocks/motor)
 - [聲光效果與螢幕顯示](https://mbc-jbot.github.io/guide/blocks/display)
 - [循線感測器與超音波應用](https://mbc-jbot.github.io/guide/blocks/sensor)

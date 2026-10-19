@@ -1,0 +1,132 @@
+{
+ "format": "jbot-blocks",
+ "version": 1,
+ "savedAt": "2026-10-18T00:00:00.000Z",
+ "workspace": {
+  "blocks": {
+   "languageVersion": 0,
+   "blocks": [
+    {
+     "type": "jbot_setup",
+     "x": 40,
+     "y": 40,
+     "deletable": false,
+     "next": {
+      "block": {
+       "type": "jbot_init",
+       "next": {
+        "block": {
+         "type": "jbot_motor_reset_deg",
+         "fields": {
+          "type": "ENC_ALL"
+         },
+         "next": {
+          "block": {
+           "type": "controls_whileUntil",
+           "fields": {
+            "MODE": "UNTIL"
+           },
+           "inputs": {
+            "BOOL": {
+             "block": {
+              "type": "logic_compare",
+              "fields": {
+               "OP": "GT"
+              },
+              "inputs": {
+               "A": {
+                "block": {
+                 "type": "jbot_motor_deg",
+                 "fields": {
+                  "type": "ENC_AVG"
+                 }
+                }
+               },
+               "B": {
+                "shadow": {
+                 "type": "math_number",
+                 "fields": {
+                  "NUM": 600
+                 }
+                }
+               }
+              }
+             }
+            },
+            "DO": {
+             "block": {
+              "type": "serial_print",
+              "fields": {
+               "NEWLINE": "LN"
+              },
+              "inputs": {
+               "VALUE": {
+                "block": {
+                 "type": "jbot_motor_deg",
+                 "fields": {
+                  "type": "ENC_AVG"
+                 }
+                }
+               }
+              },
+              "next": {
+               "block": {
+                "type": "jbot_motor_run2",
+                "inputs": {
+                 "speedL": {
+                  "shadow": {
+                   "type": "math_number",
+                   "fields": {
+                    "NUM": 50
+                   }
+                  }
+                 },
+                 "speedR": {
+                  "shadow": {
+                   "type": "math_number",
+                   "fields": {
+                    "NUM": 50
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           },
+           "next": {
+            "block": {
+             "type": "jbot_motor_stop",
+             "fields": {
+              "type": "MOTOR_L",
+              "mode": "BRAKE"
+             },
+             "next": {
+              "block": {
+               "type": "jbot_motor_stop",
+               "fields": {
+                "type": "MOTOR_R",
+                "mode": "BRAKE"
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "type": "jbot_loop",
+     "x": 40,
+     "y": 360,
+     "deletable": false
+    }
+   ]
+  }
+ }
+}

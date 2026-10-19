@@ -1,0 +1,1189 @@
+{
+  "format": "mbc-project",
+  "target": "arduino:avr",
+  "specVersion": 2,
+  "meta": {
+    "id": null,
+    "name": "lesson6-ps2-demo",
+    "author": "",
+    "createdAt": "2026-10-19T07:35:40.877Z",
+    "modifiedAt": "2026-10-19T07:35:40.877Z",
+    "appVersion": "1.0.0"
+  },
+  "board": {
+    "fqbn": null,
+    "displayName": null
+  },
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "arduino_setup",
+          "id": "%#PDH3f6n=w=(7CHlAfO",
+          "x": 80,
+          "y": 20,
+          "next": {
+            "block": {
+              "type": "var_declare",
+              "id": "-IRx~k}VLZTWP%;l9w]=",
+              "fields": {
+                "CTYPE": "float",
+                "VAR": "speed"
+              },
+              "inputs": {
+                "INIT": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "}PEoqdsIF2+BiEKNY3/@",
+                    "fields": {
+                      "NUM": 0
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "var_declare",
+                  "id": "kJ=nAl=57C+FoD._C+l4",
+                  "fields": {
+                    "CTYPE": "float",
+                    "VAR": "turn"
+                  },
+                  "inputs": {
+                    "INIT": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "zop/My2[4i:-u7s6MGjr",
+                        "fields": {
+                          "NUM": 0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "var_declare",
+                      "id": "i*^o]F@Lq~Ex)2HAgl.:",
+                      "fields": {
+                        "CTYPE": "float",
+                        "VAR": "speedL"
+                      },
+                      "inputs": {
+                        "INIT": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "v/1k~Tp-jyy7Y)/%c-;U",
+                            "fields": {
+                              "NUM": 0
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "var_declare",
+                          "id": ")~P(h[Qt.{II5oLcE@Rd",
+                          "fields": {
+                            "CTYPE": "float",
+                            "VAR": "speedR"
+                          },
+                          "inputs": {
+                            "INIT": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "N/sOc(AYIyo0Z}|yRKW4",
+                                "fields": {
+                                  "NUM": 0
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "jbot_init",
+                              "id": "97xxwlcrX+R)T]O44Of*"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "arduino_loop",
+          "id": "64`rxiGSU3#(Tc`F24c8",
+          "x": 80,
+          "y": 368,
+          "next": {
+            "block": {
+              "type": "controls_if",
+              "id": "3h2m{{+DPJHyZdWv3`[h",
+              "extraState": {
+                "hasElse": true
+              },
+              "inputs": {
+                "IF0": {
+                  "shadow": {
+                    "type": "core_boolean",
+                    "id": ")te!`_A2|pq(S6?_QO*z",
+                    "fields": {
+                      "BOOL": "true"
+                    }
+                  },
+                  "block": {
+                    "type": "jbot_ps2_button",
+                    "id": "F%2;9zG,;J5uhe}8hF5#",
+                    "fields": {
+                      "button": "PSB_PAD_UP"
+                    }
+                  }
+                },
+                "DO0": {
+                  "block": {
+                    "type": "var_set",
+                    "id": "[I.^;rI(rCK,/KNayty_",
+                    "fields": {
+                      "VAR": "speed"
+                    },
+                    "inputs": {
+                      "VAL": {
+                        "shadow": {
+                          "type": "math_number",
+                          "id": "a]fPKt.{M=ko]?XO*C!A",
+                          "fields": {
+                            "NUM": 50
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "ELSE": {
+                  "block": {
+                    "type": "controls_if",
+                    "id": "{CDm5aN9rZe.ya6h2=qf",
+                    "extraState": {
+                      "hasElse": true
+                    },
+                    "inputs": {
+                      "IF0": {
+                        "shadow": {
+                          "type": "core_boolean",
+                          "id": "8fj3fCz#ueXl}(#7kBGB",
+                          "fields": {
+                            "BOOL": "true"
+                          }
+                        },
+                        "block": {
+                          "type": "jbot_ps2_button",
+                          "id": "IcDG$T7)?C_c{c9)]ykS",
+                          "fields": {
+                            "button": "PSB_PAD_DOWN"
+                          }
+                        }
+                      },
+                      "DO0": {
+                        "block": {
+                          "type": "var_set",
+                          "id": "h:rzw+nYoV:Ivl/4[QjO",
+                          "fields": {
+                            "VAR": "speed"
+                          },
+                          "inputs": {
+                            "VAL": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "zxssFSm6s0SARuV;0m2Z",
+                                "fields": {
+                                  "NUM": -50
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ELSE": {
+                        "block": {
+                          "type": "var_set",
+                          "id": "YZ2;LK:lNe+z0JOMoj`5",
+                          "fields": {
+                            "VAR": "speed"
+                          },
+                          "inputs": {
+                            "VAL": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "=:GP3.f+xM3Ex}:..,De",
+                                "fields": {
+                                  "NUM": 0
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "controls_if",
+                  "id": "$QjTYVGD%}!1Ap0L!4m3",
+                  "extraState": {
+                    "hasElse": true
+                  },
+                  "inputs": {
+                    "IF0": {
+                      "shadow": {
+                        "type": "core_boolean",
+                        "id": "cDKu8:a9Rv_vzQjI.}zq",
+                        "fields": {
+                          "BOOL": "true"
+                        }
+                      },
+                      "block": {
+                        "type": "jbot_ps2_button",
+                        "id": "[*a]h5*38~ZDCcw(%dxz",
+                        "fields": {
+                          "button": "PSB_PAD_LEFT"
+                        }
+                      }
+                    },
+                    "DO0": {
+                      "block": {
+                        "type": "var_set",
+                        "id": "V3.ohgh!oFUxm#ZOjEMS",
+                        "fields": {
+                          "VAR": "turn"
+                        },
+                        "inputs": {
+                          "VAL": {
+                            "shadow": {
+                              "type": "math_number",
+                              "id": "L,!}-uY|VSQ;e3^u.Uw]",
+                              "fields": {
+                                "NUM": -25
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "ELSE": {
+                      "block": {
+                        "type": "controls_if",
+                        "id": "Jv]QLlep4$zdv.P(oVLD",
+                        "extraState": {
+                          "hasElse": true
+                        },
+                        "inputs": {
+                          "IF0": {
+                            "shadow": {
+                              "type": "core_boolean",
+                              "id": "wWP_/`a=f;Fh)W|gpq3q",
+                              "fields": {
+                                "BOOL": "true"
+                              }
+                            },
+                            "block": {
+                              "type": "jbot_ps2_button",
+                              "id": "[.av}^v??kHtr5`|j}^F",
+                              "fields": {
+                                "button": "PSB_PAD_RIGHT"
+                              }
+                            }
+                          },
+                          "DO0": {
+                            "block": {
+                              "type": "var_set",
+                              "id": "q/E9wqfO(jB%3R+M.v0)",
+                              "fields": {
+                                "VAR": "turn"
+                              },
+                              "inputs": {
+                                "VAL": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "+A7C@4!tBcpE9h3U_8+O",
+                                    "fields": {
+                                      "NUM": 25
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "ELSE": {
+                            "block": {
+                              "type": "var_set",
+                              "id": "BQSuvlJoT/7kaZY#g5af",
+                              "fields": {
+                                "VAR": "turn"
+                              },
+                              "inputs": {
+                                "VAL": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "eRiidR*y7/}0Ca*%aZ:(",
+                                    "fields": {
+                                      "NUM": 0
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "controls_if",
+                      "id": "C|^jsLMjX;0M$[RW:d)D",
+                      "extraState": {
+                        "hasElse": true
+                      },
+                      "inputs": {
+                        "IF0": {
+                          "shadow": {
+                            "type": "core_boolean",
+                            "id": "yzc%,B/zAmkpaMM2M98.",
+                            "fields": {
+                              "BOOL": "true"
+                            }
+                          },
+                          "block": {
+                            "type": "jbot_ps2_button",
+                            "id": "z7pSTaP%9Q%+0P*(H!MB",
+                            "fields": {
+                              "button": "PSB_L1"
+                            }
+                          }
+                        },
+                        "DO0": {
+                          "block": {
+                            "type": "var_set",
+                            "id": "})QS|YVL7(kB}K`?ok2X",
+                            "fields": {
+                              "VAR": "speedL"
+                            },
+                            "inputs": {
+                              "VAL": {
+                                "shadow": {
+                                  "type": "math_number",
+                                  "id": "g+cJ-wqg4))3~?-|ldk!",
+                                  "fields": {
+                                    "NUM": 50
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "ELSE": {
+                          "block": {
+                            "type": "controls_if",
+                            "id": "7]Cw=GA,b7?X_Y;+THV?",
+                            "extraState": {
+                              "hasElse": true
+                            },
+                            "inputs": {
+                              "IF0": {
+                                "shadow": {
+                                  "type": "core_boolean",
+                                  "id": "0K:l+MKdz:LNJNv2*)u2",
+                                  "fields": {
+                                    "BOOL": "true"
+                                  }
+                                },
+                                "block": {
+                                  "type": "jbot_ps2_button",
+                                  "id": "d4w+`Ow6Uv9T(J+Z2RK+",
+                                  "fields": {
+                                    "button": "PSB_L2"
+                                  }
+                                }
+                              },
+                              "DO0": {
+                                "block": {
+                                  "type": "var_set",
+                                  "id": "dTWu;q[@,h._F{-0Roy3",
+                                  "fields": {
+                                    "VAR": "speedL"
+                                  },
+                                  "inputs": {
+                                    "VAL": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "id": "H-DAh96@bNE7vL@B6uGw",
+                                        "fields": {
+                                          "NUM": -50
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "ELSE": {
+                                "block": {
+                                  "type": "controls_if",
+                                  "id": "508Y,briv,XR2TMd)l^7",
+                                  "inputs": {
+                                    "IF0": {
+                                      "shadow": {
+                                        "type": "core_boolean",
+                                        "id": "I[f`UC_fqe@`/|~~Kso0",
+                                        "fields": {
+                                          "BOOL": "true"
+                                        }
+                                      },
+                                      "block": {
+                                        "type": "logic_not",
+                                        "id": "e#:u;/IQYw2}3$GWi1Yh",
+                                        "inputs": {
+                                          "A": {
+                                            "block": {
+                                              "type": "compare_op",
+                                              "id": "HX.+JxEo5S6hjh$u_%4P",
+                                              "fields": {
+                                                "OP": "EQ"
+                                              },
+                                              "inputs": {
+                                                "A": {
+                                                  "block": {
+                                                    "type": "jbot_ps2_stick",
+                                                    "id": "a0]!?;}a?vphsNcHJ0Ah",
+                                                    "fields": {
+                                                      "stick": "PSS_LY"
+                                                    }
+                                                  }
+                                                },
+                                                "B": {
+                                                  "shadow": {
+                                                    "type": "math_number",
+                                                    "id": "-M0u7y9FHQ@iV:?Ih4bp",
+                                                    "fields": {
+                                                      "NUM": 0
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "DO0": {
+                                      "block": {
+                                        "type": "var_set",
+                                        "id": "v8tcn)zeZ{5!~hZ(0)mm",
+                                        "fields": {
+                                          "VAR": "speedL"
+                                        },
+                                        "inputs": {
+                                          "VAL": {
+                                            "block": {
+                                              "type": "math_op",
+                                              "id": "Art;]xM]dm*KH[rcpS/$",
+                                              "fields": {
+                                                "OP": "SUB"
+                                              },
+                                              "inputs": {
+                                                "A": {
+                                                  "block": {
+                                                    "type": "jbot_ps2_stick",
+                                                    "id": "!|x0X1%Q8xDcZ1}tr889",
+                                                    "fields": {
+                                                      "stick": "PSS_LY"
+                                                    }
+                                                  }
+                                                },
+                                                "B": {
+                                                  "shadow": {
+                                                    "type": "math_number",
+                                                    "id": "_4@ee$*5|wQib3[^Ykxt",
+                                                    "fields": {
+                                                      "NUM": 128
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "controls_if",
+                          "id": "kE:4Wop;AF_5@]gij@h4",
+                          "extraState": {
+                            "hasElse": true
+                          },
+                          "inputs": {
+                            "IF0": {
+                              "shadow": {
+                                "type": "core_boolean",
+                                "id": "itc_9%)w@$m$-6rhi+8S",
+                                "fields": {
+                                  "BOOL": "true"
+                                }
+                              },
+                              "block": {
+                                "type": "jbot_ps2_button",
+                                "id": "oxG@tzBH,~B)4CP+@Q=H",
+                                "fields": {
+                                  "button": "PSB_R1"
+                                }
+                              }
+                            },
+                            "DO0": {
+                              "block": {
+                                "type": "var_set",
+                                "id": "JjG?A*|zAX8v29A9`TEZ",
+                                "fields": {
+                                  "VAR": "speedR"
+                                },
+                                "inputs": {
+                                  "VAL": {
+                                    "shadow": {
+                                      "type": "math_number",
+                                      "id": "5hgk5w?Ko4;S9nXW+W7T",
+                                      "fields": {
+                                        "NUM": 50
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "ELSE": {
+                              "block": {
+                                "type": "controls_if",
+                                "id": "#,Hl?)7+ts/z]|:PaYYc",
+                                "extraState": {
+                                  "hasElse": true
+                                },
+                                "inputs": {
+                                  "IF0": {
+                                    "shadow": {
+                                      "type": "core_boolean",
+                                      "id": ",;m$Q8v;j0}QF)pqQh/z",
+                                      "fields": {
+                                        "BOOL": "true"
+                                      }
+                                    },
+                                    "block": {
+                                      "type": "jbot_ps2_button",
+                                      "id": "BcX4Zm:yB{CBDUfRtxBg",
+                                      "fields": {
+                                        "button": "PSB_R2"
+                                      }
+                                    }
+                                  },
+                                  "DO0": {
+                                    "block": {
+                                      "type": "var_set",
+                                      "id": "{S5n=RrVM;]h.f%db^}2",
+                                      "fields": {
+                                        "VAR": "speedR"
+                                      },
+                                      "inputs": {
+                                        "VAL": {
+                                          "shadow": {
+                                            "type": "math_number",
+                                            "id": "{!gFb}Rh=Z*qt]@]+aBZ",
+                                            "fields": {
+                                              "NUM": -50
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "ELSE": {
+                                    "block": {
+                                      "type": "controls_if",
+                                      "id": "`p@ZqKns[yk;LVJ0VqaU",
+                                      "inputs": {
+                                        "IF0": {
+                                          "shadow": {
+                                            "type": "core_boolean",
+                                            "id": "6(9U+$pF=_`V[VgKH[^X",
+                                            "fields": {
+                                              "BOOL": "true"
+                                            }
+                                          },
+                                          "block": {
+                                            "type": "logic_not",
+                                            "id": "/=mXz8U@l`Xl7(D]LE5{",
+                                            "inputs": {
+                                              "A": {
+                                                "block": {
+                                                  "type": "compare_op",
+                                                  "id": "xOJFVMGCVv#{lzrls*,/",
+                                                  "fields": {
+                                                    "OP": "EQ"
+                                                  },
+                                                  "inputs": {
+                                                    "A": {
+                                                      "block": {
+                                                        "type": "jbot_ps2_stick",
+                                                        "id": "85k=MN0x|i_uU0H3;B)E",
+                                                        "fields": {
+                                                          "stick": "PSS_RY"
+                                                        }
+                                                      }
+                                                    },
+                                                    "B": {
+                                                      "shadow": {
+                                                        "type": "math_number",
+                                                        "id": "UT:~,3rldy*s?@)/8Lvf",
+                                                        "fields": {
+                                                          "NUM": 0
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "DO0": {
+                                          "block": {
+                                            "type": "var_set",
+                                            "id": "V@tO;xI6LEQzOtO=T2NG",
+                                            "fields": {
+                                              "VAR": "speedR"
+                                            },
+                                            "inputs": {
+                                              "VAL": {
+                                                "block": {
+                                                  "type": "math_op",
+                                                  "id": "E|M15SV{`[wTryU6[CQ`",
+                                                  "fields": {
+                                                    "OP": "SUB"
+                                                  },
+                                                  "inputs": {
+                                                    "A": {
+                                                      "block": {
+                                                        "type": "jbot_ps2_stick",
+                                                        "id": "ooZjRgavg/1[7WYF|w{N",
+                                                        "fields": {
+                                                          "stick": "PSS_RY"
+                                                        }
+                                                      }
+                                                    },
+                                                    "B": {
+                                                      "shadow": {
+                                                        "type": "math_number",
+                                                        "id": "(vd]Fc,XrLFHsri#PDEF",
+                                                        "fields": {
+                                                          "NUM": 128
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "jbot_motor_run",
+                              "id": "og-|Y2B]Ndu(a0$v-GS%",
+                              "fields": {
+                                "type": "MOTOR_L"
+                              },
+                              "inputs": {
+                                "speed": {
+                                  "block": {
+                                    "type": "math_clamp",
+                                    "id": "z|O~[+ve4T[k9c]=mdO!",
+                                    "inputs": {
+                                      "VALUE": {
+                                        "block": {
+                                          "type": "math_op",
+                                          "id": "mE-@:69R$hqK17USQn;+",
+                                          "fields": {
+                                            "OP": "ADD"
+                                          },
+                                          "inputs": {
+                                            "A": {
+                                              "block": {
+                                                "type": "math_op",
+                                                "id": "}.9Vn#^.7FF[6-dV3#||",
+                                                "fields": {
+                                                  "OP": "ADD"
+                                                },
+                                                "inputs": {
+                                                  "A": {
+                                                    "block": {
+                                                      "type": "var_get",
+                                                      "id": "/6{@y3Nn-hJccr9j53(=",
+                                                      "fields": {
+                                                        "VAR": "speed"
+                                                      }
+                                                    }
+                                                  },
+                                                  "B": {
+                                                    "block": {
+                                                      "type": "var_get",
+                                                      "id": "Ra=%)cD[:~+0TE1ZenZz",
+                                                      "fields": {
+                                                        "VAR": "turn"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "B": {
+                                              "block": {
+                                                "type": "var_get",
+                                                "id": "_N38Vmk{,;5{PP`Sn]BG",
+                                                "fields": {
+                                                  "VAR": "speedL"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "MIN": {
+                                        "shadow": {
+                                          "type": "math_number",
+                                          "id": "*O,#W{/qP@q)%GIHmjxB",
+                                          "fields": {
+                                            "NUM": -100
+                                          }
+                                        }
+                                      },
+                                      "MAX": {
+                                        "shadow": {
+                                          "type": "math_number",
+                                          "id": "{_]X4Cr81fuI7mHDt8*P",
+                                          "fields": {
+                                            "NUM": 100
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "jbot_motor_run",
+                                  "id": "hCUo,a}Vw:(H1!H)At/K",
+                                  "fields": {
+                                    "type": "MOTOR_R"
+                                  },
+                                  "inputs": {
+                                    "speed": {
+                                      "block": {
+                                        "type": "math_clamp",
+                                        "id": "zKpZ7}6J?yg;r():[,`e",
+                                        "inputs": {
+                                          "VALUE": {
+                                            "block": {
+                                              "type": "math_op",
+                                              "id": "=QG,*pyt@`{1QwT}X[tQ",
+                                              "fields": {
+                                                "OP": "ADD"
+                                              },
+                                              "inputs": {
+                                                "A": {
+                                                  "block": {
+                                                    "type": "math_op",
+                                                    "id": "6WdjsJlmxyiSm;JY~GQZ",
+                                                    "fields": {
+                                                      "OP": "SUB"
+                                                    },
+                                                    "inputs": {
+                                                      "A": {
+                                                        "block": {
+                                                          "type": "var_get",
+                                                          "id": "loY;63HF|b/,Wb),ZE@j",
+                                                          "fields": {
+                                                            "VAR": "speed"
+                                                          }
+                                                        }
+                                                      },
+                                                      "B": {
+                                                        "block": {
+                                                          "type": "var_get",
+                                                          "id": "yuG1;#F)oaR9-H]uC3[u",
+                                                          "fields": {
+                                                            "VAR": "turn"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "B": {
+                                                  "block": {
+                                                    "type": "var_get",
+                                                    "id": "CMm0qcrCaPgMX4h7`[3X",
+                                                    "fields": {
+                                                      "VAR": "speedR"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "MIN": {
+                                            "shadow": {
+                                              "type": "math_number",
+                                              "id": "f8Q;OxOCYDOTqT*(oN${",
+                                              "fields": {
+                                                "NUM": -100
+                                              }
+                                            }
+                                          },
+                                          "MAX": {
+                                            "shadow": {
+                                              "type": "math_number",
+                                              "id": "?41131)f_H5A*WN8zR_N",
+                                              "fields": {
+                                                "NUM": 100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "serial_print",
+                                      "id": "rz67xIVvbBt|)WoTsUus",
+                                      "inputs": {
+                                        "VAL": {
+                                          "block": {
+                                            "type": "var_get",
+                                            "id": "}o{8ZM:|D[^0pV)hjbGa",
+                                            "fields": {
+                                              "VAR": "speedL"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "next": {
+                                        "block": {
+                                          "type": "serial_print",
+                                          "id": "0N0zAZt.QK1)P$;u+9Tz",
+                                          "inputs": {
+                                            "VAL": {
+                                              "shadow": {
+                                                "type": "text",
+                                                "id": "*/e=|*7a[k786~v(@f#6",
+                                                "fields": {
+                                                  "TEXT": ","
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "next": {
+                                            "block": {
+                                              "type": "serial_println",
+                                              "id": "R7*!O[$K?5ALh+TT`}[s",
+                                              "inputs": {
+                                                "VAL": {
+                                                  "block": {
+                                                    "type": "var_get",
+                                                    "id": ":_w[Sq~=,ydY|WH[q#91",
+                                                    "fields": {
+                                                      "VAR": "speedR"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "blockPacks": [
+    {
+      "format": "mbc-block-pack",
+      "target": "arduino:avr",
+      "specVersion": 1,
+      "nested": true,
+      "id": "mbc_jbot",
+      "version": 1,
+      "name": "MBC-jBot 核心套件",
+      "colour": "#4E92F2",
+      "author": "MBC Robot Team",
+      "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、光學編碼器、雙路紅外循線感測、VL53L0X 雷射測距、4 顆 WS2812 彩燈、SSD1315 OLED 螢幕（選購，英文與數字）、雙路伺服馬達、PS2 無線手把遙控、電池電壓與開機按鈕。",
+      "categories": [
+        {
+          "name": "jBot 運動",
+          "colour": "#4E92F2"
+        },
+        {
+          "name": "jBot 感測",
+          "colour": "#774EF2"
+        },
+        {
+          "name": "jBot 彩燈",
+          "colour": "#F5CB36"
+        },
+        {
+          "name": "jBot 螢幕",
+          "colour": "#00A0A0"
+        },
+        {
+          "name": "jBot 舵機",
+          "colour": "#E8A325"
+        },
+        {
+          "name": "jBot 遙控",
+          "colour": "#2E7D32"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "jbot_init",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 運動",
+          "colour": "#4E92F2",
+          "shape": "statement",
+          "message": "初始化 jBot 機器人 (等待按鈕啟動)",
+          "args": [],
+          "tooltip": "初始化 jBot 機器人所有周邊（馬達、伺服、編碼器、I2C 雷射、RGB 彩燈與感測器），並等待板載按鈕按下後正式啟動",
+          "code": {
+            "template": "Bot.begin();",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_motor_run",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 運動",
+          "colour": "#4E92F2",
+          "shape": "statement",
+          "message": "馬達 %1 跑速度 %2",
+          "args": [
+            {
+              "name": "type",
+              "kind": "field_dropdown",
+              "options": [
+                [
+                  "右",
+                  "MOTOR_R"
+                ],
+                [
+                  "左",
+                  "MOTOR_L"
+                ]
+              ]
+            },
+            {
+              "name": "speed",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 75
+              }
+            }
+          ],
+          "tooltip": "設定單側馬達運轉動力（範圍 -100 ~ 100）",
+          "code": {
+            "template": "Bot.setMotor({type}, {speed});",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_ps2_button",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 遙控",
+          "colour": "#2E7D32",
+          "shape": "value",
+          "output": "Boolean",
+          "message": "PS2 %1 按鍵被按下",
+          "args": [
+            {
+              "name": "button",
+              "kind": "field_dropdown",
+              "options": [
+                [
+                  "上",
+                  "PSB_PAD_UP"
+                ],
+                [
+                  "下",
+                  "PSB_PAD_DOWN"
+                ],
+                [
+                  "左",
+                  "PSB_PAD_LEFT"
+                ],
+                [
+                  "右",
+                  "PSB_PAD_RIGHT"
+                ],
+                [
+                  "三角",
+                  "PSB_TRIANGLE"
+                ],
+                [
+                  "圓形",
+                  "PSB_CIRCLE"
+                ],
+                [
+                  "叉號",
+                  "PSB_CROSS"
+                ],
+                [
+                  "方塊",
+                  "PSB_SQUARE"
+                ],
+                [
+                  "L1",
+                  "PSB_L1"
+                ],
+                [
+                  "L2",
+                  "PSB_L2"
+                ],
+                [
+                  "L3",
+                  "PSB_L3"
+                ],
+                [
+                  "R1",
+                  "PSB_R1"
+                ],
+                [
+                  "R2",
+                  "PSB_R2"
+                ],
+                [
+                  "R3",
+                  "PSB_R3"
+                ],
+                [
+                  "選擇 (Select)",
+                  "PSB_SELECT"
+                ],
+                [
+                  "開始 (Start)",
+                  "PSB_START"
+                ]
+              ]
+            }
+          ],
+          "tooltip": "判斷 PS2 無線手把指定按鈕是否被按下 (true / false)",
+          "code": {
+            "template": "Bot.isPS2ButtonPressed({button})",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_ps2_stick",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 遙控",
+          "colour": "#2E7D32",
+          "shape": "value",
+          "output": "Number",
+          "message": "PS2 獲取搖桿 %1",
+          "args": [
+            {
+              "name": "stick",
+              "kind": "field_dropdown",
+              "options": [
+                [
+                  "LX",
+                  "PSS_LX"
+                ],
+                [
+                  "LY",
+                  "PSS_LY"
+                ],
+                [
+                  "RX",
+                  "PSS_RX"
+                ],
+                [
+                  "RY",
+                  "PSS_RY"
+                ]
+              ]
+            }
+          ],
+          "tooltip": "讀取 PS2 無線手把類比搖桿指定軸向數值 (0 ~ 255，中心值為 128)",
+          "code": {
+            "template": "Bot.getPS2Stick({stick})",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [],
+  "lastFlashedHash": null
+}

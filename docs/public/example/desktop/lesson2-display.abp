@@ -1,0 +1,319 @@
+{
+  "format": "mbc-project",
+  "target": "arduino:avr",
+  "specVersion": 2,
+  "meta": {
+    "id": null,
+    "name": "lesson2-display",
+    "author": "",
+    "createdAt": "2026-10-19T07:35:31.674Z",
+    "modifiedAt": "2026-10-19T07:35:31.674Z",
+    "appVersion": "1.0.0"
+  },
+  "board": {
+    "fqbn": null,
+    "displayName": null
+  },
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "arduino_setup",
+          "id": "cyk0PHAZiq_FlszX(rmi",
+          "x": 80,
+          "y": 20,
+          "next": {
+            "block": {
+              "type": "jbot_init",
+              "id": "BtQ@@+zhise[l+xOeAUp",
+              "next": {
+                "block": {
+                  "type": "jbot_led_set",
+                  "id": "ppGCk2p}C$gZJ52x09LE",
+                  "fields": {
+                    "index": "1"
+                  },
+                  "inputs": {
+                    "r": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "vHd*Uv3l/^?|b};$U-i6",
+                        "fields": {
+                          "NUM": 255
+                        }
+                      }
+                    },
+                    "g": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "d-nS4KQ)FBx}.u|mx,(H",
+                        "fields": {
+                          "NUM": 0
+                        }
+                      }
+                    },
+                    "b": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": ";r?yIPR9T/Sq{{ns[T?S",
+                        "fields": {
+                          "NUM": 0
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "jbot_oled_clear",
+                      "id": "sN7h[I,+WXrO6Y]auWKd",
+                      "next": {
+                        "block": {
+                          "type": "jbot_oled_print",
+                          "id": "83R2|yx//k88-sQv)@3u",
+                          "inputs": {
+                            "X": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "-;4/}kx$b,VV[+sWk%ZA",
+                                "fields": {
+                                  "NUM": 0
+                                }
+                              }
+                            },
+                            "Y": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "ak%WZmPKGCHR=1E[,A3;",
+                                "fields": {
+                                  "NUM": 1
+                                }
+                              }
+                            },
+                            "TEXT": {
+                              "shadow": {
+                                "type": "text",
+                                "id": "lx{AmG]tbgLt}ag)C$ZI",
+                                "fields": {
+                                  "TEXT": "Hello"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "arduino_loop",
+          "id": "sSe)V.Wb`SZo(6|$j!@(",
+          "x": 80,
+          "y": 322
+        }
+      ]
+    }
+  },
+  "blockPacks": [
+    {
+      "format": "mbc-block-pack",
+      "target": "arduino:avr",
+      "specVersion": 1,
+      "nested": true,
+      "id": "mbc_jbot",
+      "version": 1,
+      "name": "MBC-jBot 核心套件",
+      "colour": "#4E92F2",
+      "author": "MBC Robot Team",
+      "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、光學編碼器、雙路紅外循線感測、VL53L0X 雷射測距、4 顆 WS2812 彩燈、SSD1315 OLED 螢幕（選購，英文與數字）、雙路伺服馬達、PS2 無線手把遙控、電池電壓與開機按鈕。",
+      "categories": [
+        {
+          "name": "jBot 運動",
+          "colour": "#4E92F2"
+        },
+        {
+          "name": "jBot 感測",
+          "colour": "#774EF2"
+        },
+        {
+          "name": "jBot 彩燈",
+          "colour": "#F5CB36"
+        },
+        {
+          "name": "jBot 螢幕",
+          "colour": "#00A0A0"
+        },
+        {
+          "name": "jBot 舵機",
+          "colour": "#E8A325"
+        },
+        {
+          "name": "jBot 遙控",
+          "colour": "#2E7D32"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "jbot_init",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 運動",
+          "colour": "#4E92F2",
+          "shape": "statement",
+          "message": "初始化 jBot 機器人 (等待按鈕啟動)",
+          "args": [],
+          "tooltip": "初始化 jBot 機器人所有周邊（馬達、伺服、編碼器、I2C 雷射、RGB 彩燈與感測器），並等待板載按鈕按下後正式啟動",
+          "code": {
+            "template": "Bot.begin();",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_led_set",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 彩燈",
+          "colour": "#F5CB36",
+          "shape": "statement",
+          "message": "設定第 %1 顆 LED 顏色 紅 %2 綠 %3 藍 %4",
+          "args": [
+            {
+              "name": "index",
+              "kind": "field_dropdown",
+              "options": [
+                [
+                  "1",
+                  "1"
+                ],
+                [
+                  "2",
+                  "2"
+                ],
+                [
+                  "3",
+                  "3"
+                ],
+                [
+                  "4",
+                  "4"
+                ]
+              ]
+            },
+            {
+              "name": "r",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 255
+              }
+            },
+            {
+              "name": "g",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 0
+              }
+            },
+            {
+              "name": "b",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 0
+              }
+            }
+          ],
+          "tooltip": "設定指定編號板載 WS2812/SK6812 全彩 RGB LED 的紅、綠、藍色彩強度 (0 ~ 255)",
+          "code": {
+            "template": "Bot.setLED({index} - 1, {r}, {g}, {b});",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_oled_clear",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 螢幕",
+          "colour": "#00A0A0",
+          "shape": "statement",
+          "message": "清空 OLED 螢幕",
+          "args": [],
+          "tooltip": "清除 OLED 螢幕上所有文字（選購的 SSD1315 OLED 模組，接在 I2C 插座）",
+          "code": {
+            "template": "Bot.oled_clear();",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_oled_print",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 螢幕",
+          "colour": "#00A0A0",
+          "shape": "statement",
+          "message": "OLED 座標 x:%1 y:%2 顯示文字:%3",
+          "args": [
+            {
+              "name": "X",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 0
+              }
+            },
+            {
+              "name": "Y",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 0
+              }
+            },
+            {
+              "name": "TEXT",
+              "kind": "input_value",
+              "check": "String",
+              "shadow": {
+                "block": "text",
+                "value": "Hello"
+              }
+            }
+          ],
+          "tooltip": "在 OLED 指定位置顯示英文、數字或符號（x：0~15 欄，y：0~3 列；中文會顯示成 ?）",
+          "code": {
+            "template": "Bot.oled_setCursor({X}, {Y}); Bot.oled_print({TEXT});",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [],
+  "lastFlashedHash": null
+}

@@ -1,0 +1,254 @@
+{
+  "format": "mbc-project",
+  "target": "arduino:avr",
+  "specVersion": 2,
+  "meta": {
+    "id": null,
+    "name": "lesson1-motor",
+    "author": "",
+    "createdAt": "2026-10-19T07:35:29.534Z",
+    "modifiedAt": "2026-10-19T07:35:29.534Z",
+    "appVersion": "1.0.0"
+  },
+  "board": {
+    "fqbn": null,
+    "displayName": null
+  },
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "arduino_setup",
+          "id": "%|kvoW#8Slfy$LjaWmC(",
+          "x": 80,
+          "y": 20,
+          "next": {
+            "block": {
+              "type": "jbot_init",
+              "id": "!)4yVXJF3J%B$_BBK!Jb",
+              "next": {
+                "block": {
+                  "type": "jbot_motor_run2",
+                  "id": "FR*#Emobj]=?_N^[J#Ki",
+                  "inputs": {
+                    "speedL": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "$UM%orHj-](#yXzzL^dT",
+                        "fields": {
+                          "NUM": 50
+                        }
+                      }
+                    },
+                    "speedR": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "j5q##Y^~7]us_8r^:kU}",
+                        "fields": {
+                          "NUM": 50
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "ctrl_wait",
+                      "id": "xg}+G}+L?/.yWqjS^?Le",
+                      "inputs": {
+                        "SEC": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "U)+Mv%8?_cKNO-DzghZF",
+                            "fields": {
+                              "NUM": 1
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "jbot_motor_stop",
+                          "id": "/2=8,O3i?9]zR2ZMpN_5",
+                          "fields": {
+                            "type": "MOTOR_L",
+                            "mode": "BRAKE"
+                          },
+                          "next": {
+                            "block": {
+                              "type": "jbot_motor_stop",
+                              "id": "zrAaxLHb47(H.EPru!sN",
+                              "fields": {
+                                "type": "MOTOR_R",
+                                "mode": "BRAKE"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "arduino_loop",
+          "id": "GIlJxuv(q0Bled_urNLY",
+          "x": 80,
+          "y": 362
+        }
+      ]
+    }
+  },
+  "blockPacks": [
+    {
+      "format": "mbc-block-pack",
+      "target": "arduino:avr",
+      "specVersion": 1,
+      "nested": true,
+      "id": "mbc_jbot",
+      "version": 1,
+      "name": "MBC-jBot 核心套件",
+      "colour": "#4E92F2",
+      "author": "MBC Robot Team",
+      "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、光學編碼器、雙路紅外循線感測、VL53L0X 雷射測距、4 顆 WS2812 彩燈、SSD1315 OLED 螢幕（選購，英文與數字）、雙路伺服馬達、PS2 無線手把遙控、電池電壓與開機按鈕。",
+      "categories": [
+        {
+          "name": "jBot 運動",
+          "colour": "#4E92F2"
+        },
+        {
+          "name": "jBot 感測",
+          "colour": "#774EF2"
+        },
+        {
+          "name": "jBot 彩燈",
+          "colour": "#F5CB36"
+        },
+        {
+          "name": "jBot 螢幕",
+          "colour": "#00A0A0"
+        },
+        {
+          "name": "jBot 舵機",
+          "colour": "#E8A325"
+        },
+        {
+          "name": "jBot 遙控",
+          "colour": "#2E7D32"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "jbot_init",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 運動",
+          "colour": "#4E92F2",
+          "shape": "statement",
+          "message": "初始化 jBot 機器人 (等待按鈕啟動)",
+          "args": [],
+          "tooltip": "初始化 jBot 機器人所有周邊（馬達、伺服、編碼器、I2C 雷射、RGB 彩燈與感測器），並等待板載按鈕按下後正式啟動",
+          "code": {
+            "template": "Bot.begin();",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_motor_run2",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 運動",
+          "colour": "#4E92F2",
+          "shape": "statement",
+          "message": "馬達跑左 %1 右 %2",
+          "args": [
+            {
+              "name": "speedL",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 75
+              }
+            },
+            {
+              "name": "speedR",
+              "kind": "input_value",
+              "check": "Number",
+              "shadow": {
+                "block": "math_number",
+                "value": 75
+              }
+            }
+          ],
+          "tooltip": "同時設定左右兩輪馬達運轉動力（範圍 -100 ~ 100）",
+          "code": {
+            "template": "Bot.setMotors({speedL}, {speedR});",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        },
+        {
+          "id": "jbot_motor_stop",
+          "specVersion": 1,
+          "blockVersion": 1,
+          "category": "jBot 運動",
+          "colour": "#4E92F2",
+          "shape": "statement",
+          "message": "馬達 %1 剎車 %2",
+          "args": [
+            {
+              "name": "type",
+              "kind": "field_dropdown",
+              "options": [
+                [
+                  "右",
+                  "MOTOR_R"
+                ],
+                [
+                  "左",
+                  "MOTOR_L"
+                ]
+              ]
+            },
+            {
+              "name": "mode",
+              "kind": "field_dropdown",
+              "options": [
+                [
+                  "滑行",
+                  "0"
+                ],
+                [
+                  "煞停",
+                  "BRAKE"
+                ]
+              ]
+            }
+          ],
+          "tooltip": "停止指定馬達（滑行模式輸出 0 動力；煞停模式產生主動短路電子剎車）",
+          "code": {
+            "template": "Bot.setMotor({type}, {mode});",
+            "requires": {
+              "includes": [
+                "#include <JBC_Bot.h>"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [],
+  "lastFlashedHash": null
+}
