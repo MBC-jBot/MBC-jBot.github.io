@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson5-encoder",
     "author": "",
-    "createdAt": "2026-10-19T07:35:38.037Z",
-    "modifiedAt": "2026-10-19T07:35:38.037Z",
+    "createdAt": "2026-10-19T14:02:27.298Z",
+    "modifiedAt": "2026-10-19T14:02:27.298Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,29 +20,29 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": ":t[u^$(]qcmtn#{jO$R_",
+          "id": "Xe#@|1{Cu$0OR1WlTTAP",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "q3ZlnsnDK,re4P/U4]EM",
+              "id": "})IDjjwK9;1Di%;fb:Z~",
               "next": {
                 "block": {
                   "type": "jbot_motor_reset_deg",
-                  "id": "ylaZ-d3/B^$hLzMZ:4yE",
+                  "id": "byaU,S/I1mVDMu1ciU1.",
                   "fields": {
                     "type": "ENC_ALL"
                   },
                   "next": {
                     "block": {
                       "type": "ctrl_repeat_until",
-                      "id": "%ngnt],#wJZQG4?96f?r",
+                      "id": "{!-Iw|%Yjf/o=[:4yDNX",
                       "inputs": {
                         "COND": {
                           "block": {
                             "type": "compare_op",
-                            "id": "?,mxnlcnX((vcN|o1G%=",
+                            "id": "!16,!lPj[~^@HU0Sk(u`",
                             "fields": {
                               "OP": "GT"
                             },
@@ -50,7 +50,7 @@
                               "A": {
                                 "block": {
                                   "type": "jbot_motor_deg",
-                                  "id": "47l,-Jo%FXP#eVml[Y1G",
+                                  "id": "(^n(7y?vF$G%VTlPA,)l",
                                   "fields": {
                                     "type": "ENC_AVG"
                                   }
@@ -59,7 +59,7 @@
                               "B": {
                                 "shadow": {
                                   "type": "math_number",
-                                  "id": "g(`ETr5-d25$WLoieI.W",
+                                  "id": "p(ma=|bpbiqZ(G,NR.)^",
                                   "fields": {
                                     "NUM": 600
                                   }
@@ -71,12 +71,12 @@
                         "DO": {
                           "block": {
                             "type": "serial_println",
-                            "id": "oA1b}.Z#?67Ap]O4$}sr",
+                            "id": "EJiG;:MgOa9b1GixAT}e",
                             "inputs": {
                               "VAL": {
                                 "block": {
                                   "type": "jbot_motor_deg",
-                                  "id": "!+Aocad7z3(RIpulw{!B",
+                                  "id": "_2ap2!Lp/$XO0^oWn-Tu",
                                   "fields": {
                                     "type": "ENC_AVG"
                                   }
@@ -86,12 +86,12 @@
                             "next": {
                               "block": {
                                 "type": "jbot_motor_run2",
-                                "id": ":!^)|PEVL5pTW_QgC#bG",
+                                "id": "|;G8O`8/PAk/lzU_v??d",
                                 "inputs": {
                                   "speedL": {
                                     "shadow": {
                                       "type": "math_number",
-                                      "id": "k,I7IGo0Xqedhcukcb8`",
+                                      "id": "94KyM,fiYuOAszVllQqN",
                                       "fields": {
                                         "NUM": 50
                                       }
@@ -100,7 +100,7 @@
                                   "speedR": {
                                     "shadow": {
                                       "type": "math_number",
-                                      "id": "$~5Jq6RS~yCNBlhjgBkz",
+                                      "id": "!e7b@fB;~iDhZ5G7y(,N",
                                       "fields": {
                                         "NUM": 50
                                       }
@@ -115,7 +115,7 @@
                       "next": {
                         "block": {
                           "type": "jbot_motor_stop",
-                          "id": "|P@h+QSN2PgqDJ%NW5PV",
+                          "id": "KMz`qQgf(h4~gwW`rC9J",
                           "fields": {
                             "type": "MOTOR_L",
                             "mode": "BRAKE"
@@ -123,7 +123,7 @@
                           "next": {
                             "block": {
                               "type": "jbot_motor_stop",
-                              "id": "^=p-ArJh)=+wAppX]}Qe",
+                              "id": "0Z}G;43YM$b=d:U75Wl@",
                               "fields": {
                                 "type": "MOTOR_R",
                                 "mode": "BRAKE"
@@ -141,7 +141,7 @@
         },
         {
           "type": "arduino_loop",
-          "id": "4I-1HG$ju=c[x,U3uoo(",
+          "id": "8|xcgRL{!Am7%X#2A7T{",
           "x": 80,
           "y": 507
         }
@@ -157,33 +157,33 @@
       "id": "mbc_jbot",
       "version": 1,
       "name": "MBC-jBot 核心套件",
-      "colour": "#4E92F2",
+      "colour": "#4C97FF",
       "author": "MBC Robot Team",
       "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、光學編碼器、雙路紅外循線感測、VL53L0X 雷射測距、4 顆 WS2812 彩燈、SSD1315 OLED 螢幕（選購，英文與數字）、雙路伺服馬達、PS2 無線手把遙控、電池電壓與開機按鈕。",
       "categories": [
         {
           "name": "jBot 運動",
-          "colour": "#4E92F2"
+          "colour": "#4C97FF"
         },
         {
           "name": "jBot 感測",
-          "colour": "#774EF2"
+          "colour": "#5CB1D6"
         },
         {
           "name": "jBot 彩燈",
-          "colour": "#F5CB36"
+          "colour": "#9966FF"
         },
         {
           "name": "jBot 螢幕",
-          "colour": "#00A0A0"
+          "colour": "#774DCB"
         },
         {
           "name": "jBot 舵機",
-          "colour": "#E8A325"
+          "colour": "#3373CC"
         },
         {
           "name": "jBot 遙控",
-          "colour": "#2E7D32"
+          "colour": "#2E8EB8"
         }
       ],
       "blocks": [
@@ -192,7 +192,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "初始化 jBot 機器人 (等待按鈕啟動)",
           "args": [],
@@ -211,7 +211,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "馬達跑左 %1 右 %2",
           "args": [
@@ -249,7 +249,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "馬達 %1 剎車 %2",
           "args": [
@@ -297,7 +297,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "value",
           "output": "Number",
           "message": "馬達 %1 編碼器數值",
@@ -336,7 +336,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "重置馬達 %1 編碼器數值",
           "args": [

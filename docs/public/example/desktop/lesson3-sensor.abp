@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson3-sensor",
     "author": "",
-    "createdAt": "2026-10-19T07:35:33.784Z",
-    "modifiedAt": "2026-10-19T07:35:33.784Z",
+    "createdAt": "2026-10-19T14:02:23.030Z",
+    "modifiedAt": "2026-10-19T14:02:23.030Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,25 +20,25 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "i.!8hbJ]UO@@{I:?WPID",
+          "id": "o(5`xbfB!Xwu`t#X}%A#",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "slyA-+e:VCt~`QB-Yl*z"
+              "id": "z%#Cvfe.7Rx=t#(.+NKF"
             }
           }
         },
         {
           "type": "arduino_loop",
-          "id": "q@{*9!MConUSs|6tu]]q",
+          "id": "U6!jV0^sm~zle.,EfnZ$",
           "x": 80,
           "y": 164,
           "next": {
             "block": {
               "type": "controls_if",
-              "id": "SJSC$7Vr+t*zgnhaphI?",
+              "id": "%8?PR/v)VSiI{B!p^EUc",
               "extraState": {
                 "hasElse": true
               },
@@ -46,14 +46,14 @@
                 "IF0": {
                   "shadow": {
                     "type": "core_boolean",
-                    "id": "s/rdJ^PW{nAQX|++Qrj%",
+                    "id": "p-60dQLmr|mC$pcS`N}w",
                     "fields": {
                       "BOOL": "true"
                     }
                   },
                   "block": {
                     "type": "compare_op",
-                    "id": "dEQ-Wf[!$4A:_,iFpPb^",
+                    "id": "/`%q^}][$:|D?qGLbF[n",
                     "fields": {
                       "OP": "LT"
                     },
@@ -61,13 +61,13 @@
                       "A": {
                         "block": {
                           "type": "jbot_laser_distance",
-                          "id": "y3sQo[6t[|l88@{F/Ipp"
+                          "id": "$:Az$%-##6pMt:en:dIU"
                         }
                       },
                       "B": {
                         "shadow": {
                           "type": "math_number",
-                          "id": "[Fi[U{4WK+Y+alwZx=|~",
+                          "id": "-;7^uZS2SbGFKj_tmO]|",
                           "fields": {
                             "NUM": 100
                           }
@@ -79,7 +79,7 @@
                 "DO0": {
                   "block": {
                     "type": "jbot_motor_stop",
-                    "id": "Jtql8/D5@U5AukLP05?%",
+                    "id": "I;EH6F0oI:06!Vxm9asN",
                     "fields": {
                       "type": "MOTOR_L",
                       "mode": "BRAKE"
@@ -87,7 +87,7 @@
                     "next": {
                       "block": {
                         "type": "jbot_motor_stop",
-                        "id": "r](,=qHDi$B?zBpfAotQ",
+                        "id": "J`y#CkF//4]N68bu[%rX",
                         "fields": {
                           "type": "MOTOR_R",
                           "mode": "BRAKE"
@@ -99,12 +99,12 @@
                 "ELSE": {
                   "block": {
                     "type": "jbot_motor_run2",
-                    "id": "R;F]RLR|hG6vpG3ndPv.",
+                    "id": "R;SRlB.GLRBTlzd2p:LR",
                     "inputs": {
                       "speedL": {
                         "shadow": {
                           "type": "math_number",
-                          "id": "]%l}CCp~W`d33yY*IhXA",
+                          "id": "FHuT35fDarP+r?]_!`Gi",
                           "fields": {
                             "NUM": 50
                           }
@@ -113,7 +113,7 @@
                       "speedR": {
                         "shadow": {
                           "type": "math_number",
-                          "id": "ve1M_ezILh^.;3V/DFI4",
+                          "id": "g|B*@h)A7$.(C1`meNI4",
                           "fields": {
                             "NUM": 50
                           }
@@ -138,33 +138,33 @@
       "id": "mbc_jbot",
       "version": 1,
       "name": "MBC-jBot 核心套件",
-      "colour": "#4E92F2",
+      "colour": "#4C97FF",
       "author": "MBC Robot Team",
       "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、光學編碼器、雙路紅外循線感測、VL53L0X 雷射測距、4 顆 WS2812 彩燈、SSD1315 OLED 螢幕（選購，英文與數字）、雙路伺服馬達、PS2 無線手把遙控、電池電壓與開機按鈕。",
       "categories": [
         {
           "name": "jBot 運動",
-          "colour": "#4E92F2"
+          "colour": "#4C97FF"
         },
         {
           "name": "jBot 感測",
-          "colour": "#774EF2"
+          "colour": "#5CB1D6"
         },
         {
           "name": "jBot 彩燈",
-          "colour": "#F5CB36"
+          "colour": "#9966FF"
         },
         {
           "name": "jBot 螢幕",
-          "colour": "#00A0A0"
+          "colour": "#774DCB"
         },
         {
           "name": "jBot 舵機",
-          "colour": "#E8A325"
+          "colour": "#3373CC"
         },
         {
           "name": "jBot 遙控",
-          "colour": "#2E7D32"
+          "colour": "#2E8EB8"
         }
       ],
       "blocks": [
@@ -173,7 +173,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "初始化 jBot 機器人 (等待按鈕啟動)",
           "args": [],
@@ -192,7 +192,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "馬達跑左 %1 右 %2",
           "args": [
@@ -230,7 +230,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "馬達 %1 剎車 %2",
           "args": [
@@ -278,7 +278,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 感測",
-          "colour": "#774EF2",
+          "colour": "#5CB1D6",
           "shape": "value",
           "output": "Number",
           "message": "VL53L0 雷射距離數值",

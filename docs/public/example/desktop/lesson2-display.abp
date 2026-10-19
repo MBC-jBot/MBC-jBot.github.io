@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson2-display",
     "author": "",
-    "createdAt": "2026-10-19T07:35:31.674Z",
-    "modifiedAt": "2026-10-19T07:35:31.674Z",
+    "createdAt": "2026-10-19T14:02:20.936Z",
+    "modifiedAt": "2026-10-19T14:02:20.936Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,17 +20,17 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "cyk0PHAZiq_FlszX(rmi",
+          "id": "+8QG*}6ICHw#UF:E!}#x",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "BtQ@@+zhise[l+xOeAUp",
+              "id": ";7C(;ZTE_O`x?*jfF[/t",
               "next": {
                 "block": {
                   "type": "jbot_led_set",
-                  "id": "ppGCk2p}C$gZJ52x09LE",
+                  "id": ":a:|qo+3=kaNS3{WEJXw",
                   "fields": {
                     "index": "1"
                   },
@@ -38,7 +38,7 @@
                     "r": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "vHd*Uv3l/^?|b};$U-i6",
+                        "id": "x)JdfNvVXjJip$u9nnB3",
                         "fields": {
                           "NUM": 255
                         }
@@ -47,7 +47,7 @@
                     "g": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "d-nS4KQ)FBx}.u|mx,(H",
+                        "id": "gKc/oNnsDT_V$ycg^%KB",
                         "fields": {
                           "NUM": 0
                         }
@@ -56,7 +56,7 @@
                     "b": {
                       "shadow": {
                         "type": "math_number",
-                        "id": ";r?yIPR9T/Sq{{ns[T?S",
+                        "id": "xS@q*vmSY2A5C3BZ^.lr",
                         "fields": {
                           "NUM": 0
                         }
@@ -66,16 +66,16 @@
                   "next": {
                     "block": {
                       "type": "jbot_oled_clear",
-                      "id": "sN7h[I,+WXrO6Y]auWKd",
+                      "id": "?Uq.:GITshtO2hT^nPjg",
                       "next": {
                         "block": {
                           "type": "jbot_oled_print",
-                          "id": "83R2|yx//k88-sQv)@3u",
+                          "id": "FMjW`6+LPqFx$sGxPaN(",
                           "inputs": {
                             "X": {
                               "shadow": {
                                 "type": "math_number",
-                                "id": "-;4/}kx$b,VV[+sWk%ZA",
+                                "id": "G1YS]sA@Hb~;igDR!L?K",
                                 "fields": {
                                   "NUM": 0
                                 }
@@ -84,7 +84,7 @@
                             "Y": {
                               "shadow": {
                                 "type": "math_number",
-                                "id": "ak%WZmPKGCHR=1E[,A3;",
+                                "id": "wJ-YPQlPM6a=.hY6^G5I",
                                 "fields": {
                                   "NUM": 1
                                 }
@@ -93,7 +93,7 @@
                             "TEXT": {
                               "shadow": {
                                 "type": "text",
-                                "id": "lx{AmG]tbgLt}ag)C$ZI",
+                                "id": "mm1r%B9L5G`h[Ja1e%iI",
                                 "fields": {
                                   "TEXT": "Hello"
                                 }
@@ -111,7 +111,7 @@
         },
         {
           "type": "arduino_loop",
-          "id": "sSe)V.Wb`SZo(6|$j!@(",
+          "id": "eptbq!Y=q/#Bhn!=1$qK",
           "x": 80,
           "y": 322
         }
@@ -127,33 +127,33 @@
       "id": "mbc_jbot",
       "version": 1,
       "name": "MBC-jBot 核心套件",
-      "colour": "#4E92F2",
+      "colour": "#4C97FF",
       "author": "MBC Robot Team",
       "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、光學編碼器、雙路紅外循線感測、VL53L0X 雷射測距、4 顆 WS2812 彩燈、SSD1315 OLED 螢幕（選購，英文與數字）、雙路伺服馬達、PS2 無線手把遙控、電池電壓與開機按鈕。",
       "categories": [
         {
           "name": "jBot 運動",
-          "colour": "#4E92F2"
+          "colour": "#4C97FF"
         },
         {
           "name": "jBot 感測",
-          "colour": "#774EF2"
+          "colour": "#5CB1D6"
         },
         {
           "name": "jBot 彩燈",
-          "colour": "#F5CB36"
+          "colour": "#9966FF"
         },
         {
           "name": "jBot 螢幕",
-          "colour": "#00A0A0"
+          "colour": "#774DCB"
         },
         {
           "name": "jBot 舵機",
-          "colour": "#E8A325"
+          "colour": "#3373CC"
         },
         {
           "name": "jBot 遙控",
-          "colour": "#2E7D32"
+          "colour": "#2E8EB8"
         }
       ],
       "blocks": [
@@ -162,7 +162,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 運動",
-          "colour": "#4E92F2",
+          "colour": "#4C97FF",
           "shape": "statement",
           "message": "初始化 jBot 機器人 (等待按鈕啟動)",
           "args": [],
@@ -181,7 +181,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 彩燈",
-          "colour": "#F5CB36",
+          "colour": "#9966FF",
           "shape": "statement",
           "message": "設定第 %1 顆 LED 顏色 紅 %2 綠 %3 藍 %4",
           "args": [
@@ -250,7 +250,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 螢幕",
-          "colour": "#00A0A0",
+          "colour": "#774DCB",
           "shape": "statement",
           "message": "清空 OLED 螢幕",
           "args": [],
@@ -269,7 +269,7 @@
           "specVersion": 1,
           "blockVersion": 1,
           "category": "jBot 螢幕",
-          "colour": "#00A0A0",
+          "colour": "#774DCB",
           "shape": "statement",
           "message": "OLED 座標 x:%1 y:%2 顯示文字:%3",
           "args": [
