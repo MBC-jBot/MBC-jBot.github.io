@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson5-encoder",
     "author": "",
-    "createdAt": "2026-10-19T14:02:27.298Z",
-    "modifiedAt": "2026-10-19T14:02:27.298Z",
+    "createdAt": "2026-10-19T14:09:06.428Z",
+    "modifiedAt": "2026-10-19T14:09:06.428Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,29 +20,29 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "Xe#@|1{Cu$0OR1WlTTAP",
+          "id": ",:m;hE-@6.O!Xn}4B1]-",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "})IDjjwK9;1Di%;fb:Z~",
+              "id": "ci$_At,pkOKo#hx7up1B",
               "next": {
                 "block": {
                   "type": "jbot_motor_reset_deg",
-                  "id": "byaU,S/I1mVDMu1ciU1.",
+                  "id": "KR^n??=gZo5lwkSdMKkj",
                   "fields": {
                     "type": "ENC_ALL"
                   },
                   "next": {
                     "block": {
                       "type": "ctrl_repeat_until",
-                      "id": "{!-Iw|%Yjf/o=[:4yDNX",
+                      "id": "sV,v_Z;kw*eWD)_M(!Am",
                       "inputs": {
                         "COND": {
                           "block": {
                             "type": "compare_op",
-                            "id": "!16,!lPj[~^@HU0Sk(u`",
+                            "id": "x5hm/r9L@_broD4PXWc6",
                             "fields": {
                               "OP": "GT"
                             },
@@ -50,7 +50,7 @@
                               "A": {
                                 "block": {
                                   "type": "jbot_motor_deg",
-                                  "id": "(^n(7y?vF$G%VTlPA,)l",
+                                  "id": "RM}$RM_fRKjA?8ut).k_",
                                   "fields": {
                                     "type": "ENC_AVG"
                                   }
@@ -59,7 +59,7 @@
                               "B": {
                                 "shadow": {
                                   "type": "math_number",
-                                  "id": "p(ma=|bpbiqZ(G,NR.)^",
+                                  "id": "AB6jFr!|;YlB.T2|?+N0",
                                   "fields": {
                                     "NUM": 600
                                   }
@@ -71,12 +71,12 @@
                         "DO": {
                           "block": {
                             "type": "serial_println",
-                            "id": "EJiG;:MgOa9b1GixAT}e",
+                            "id": "FQ@`yq|Cc,a,IZr!/%[2",
                             "inputs": {
                               "VAL": {
                                 "block": {
                                   "type": "jbot_motor_deg",
-                                  "id": "_2ap2!Lp/$XO0^oWn-Tu",
+                                  "id": "[K6S7cZ|`;)?j5RC(A?!",
                                   "fields": {
                                     "type": "ENC_AVG"
                                   }
@@ -86,12 +86,12 @@
                             "next": {
                               "block": {
                                 "type": "jbot_motor_run2",
-                                "id": "|;G8O`8/PAk/lzU_v??d",
+                                "id": "5Tk?,ai58KSRTLVH*1~b",
                                 "inputs": {
                                   "speedL": {
                                     "shadow": {
                                       "type": "math_number",
-                                      "id": "94KyM,fiYuOAszVllQqN",
+                                      "id": "2t-{caS@.Hb%jAjw10@P",
                                       "fields": {
                                         "NUM": 50
                                       }
@@ -100,7 +100,7 @@
                                   "speedR": {
                                     "shadow": {
                                       "type": "math_number",
-                                      "id": "!e7b@fB;~iDhZ5G7y(,N",
+                                      "id": "y+4qTVg|L/U`Q-}%4zN5",
                                       "fields": {
                                         "NUM": 50
                                       }
@@ -115,7 +115,7 @@
                       "next": {
                         "block": {
                           "type": "jbot_motor_stop",
-                          "id": "KMz`qQgf(h4~gwW`rC9J",
+                          "id": "ws@G(uhE9-?-pB2??V+:",
                           "fields": {
                             "type": "MOTOR_L",
                             "mode": "BRAKE"
@@ -123,7 +123,7 @@
                           "next": {
                             "block": {
                               "type": "jbot_motor_stop",
-                              "id": "0Z}G;43YM$b=d:U75Wl@",
+                              "id": "sw]pCrOeWXlc:(g#JB+h",
                               "fields": {
                                 "type": "MOTOR_R",
                                 "mode": "BRAKE"
@@ -141,7 +141,7 @@
         },
         {
           "type": "arduino_loop",
-          "id": "8|xcgRL{!Am7%X#2A7T{",
+          "id": "|Gc9bK;18i/ziQ01#NZV",
           "x": 80,
           "y": 507
         }

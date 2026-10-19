@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson2-display",
     "author": "",
-    "createdAt": "2026-10-19T14:02:20.936Z",
-    "modifiedAt": "2026-10-19T14:02:20.936Z",
+    "createdAt": "2026-10-19T14:09:00.034Z",
+    "modifiedAt": "2026-10-19T14:09:00.034Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,17 +20,17 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "+8QG*}6ICHw#UF:E!}#x",
+          "id": "#V-G33!a:fS!}@oEfsgf",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": ";7C(;ZTE_O`x?*jfF[/t",
+              "id": "9gPLO|b8oCJ45!_|%LzN",
               "next": {
                 "block": {
                   "type": "jbot_led_set",
-                  "id": ":a:|qo+3=kaNS3{WEJXw",
+                  "id": "UzdH5jinuo!op?`zr?9)",
                   "fields": {
                     "index": "1"
                   },
@@ -38,7 +38,7 @@
                     "r": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "x)JdfNvVXjJip$u9nnB3",
+                        "id": "LcrqZ/3|ui)pN^G@25YO",
                         "fields": {
                           "NUM": 255
                         }
@@ -47,7 +47,7 @@
                     "g": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "gKc/oNnsDT_V$ycg^%KB",
+                        "id": "2RgPnl$4V!m?:XrT;%ac",
                         "fields": {
                           "NUM": 0
                         }
@@ -56,7 +56,7 @@
                     "b": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "xS@q*vmSY2A5C3BZ^.lr",
+                        "id": "2I.rh8HuY|(9;/DDHtoX",
                         "fields": {
                           "NUM": 0
                         }
@@ -66,16 +66,16 @@
                   "next": {
                     "block": {
                       "type": "jbot_oled_clear",
-                      "id": "?Uq.:GITshtO2hT^nPjg",
+                      "id": "H^DHeV+nU12AcXD=%AIn",
                       "next": {
                         "block": {
                           "type": "jbot_oled_print",
-                          "id": "FMjW`6+LPqFx$sGxPaN(",
+                          "id": ")M;MyT%pw`N5B?FiMF?Y",
                           "inputs": {
                             "X": {
                               "shadow": {
                                 "type": "math_number",
-                                "id": "G1YS]sA@Hb~;igDR!L?K",
+                                "id": "/,z7et(Zf^*V.JapttRE",
                                 "fields": {
                                   "NUM": 0
                                 }
@@ -84,7 +84,7 @@
                             "Y": {
                               "shadow": {
                                 "type": "math_number",
-                                "id": "wJ-YPQlPM6a=.hY6^G5I",
+                                "id": "ww5ZLn~,).XzFi8ho{]d",
                                 "fields": {
                                   "NUM": 1
                                 }
@@ -93,7 +93,7 @@
                             "TEXT": {
                               "shadow": {
                                 "type": "text",
-                                "id": "mm1r%B9L5G`h[Ja1e%iI",
+                                "id": "[j-GULFo^:(r;J=aYX(V",
                                 "fields": {
                                   "TEXT": "Hello"
                                 }
@@ -111,7 +111,7 @@
         },
         {
           "type": "arduino_loop",
-          "id": "eptbq!Y=q/#Bhn!=1$qK",
+          "id": "AJ;ZHY,aKvz^=(t-,(*j",
           "x": 80,
           "y": 322
         }

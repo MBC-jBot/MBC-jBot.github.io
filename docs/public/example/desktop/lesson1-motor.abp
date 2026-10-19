@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson1-motor",
     "author": "",
-    "createdAt": "2026-10-19T14:02:18.829Z",
-    "modifiedAt": "2026-10-19T14:02:18.829Z",
+    "createdAt": "2026-10-19T14:08:57.897Z",
+    "modifiedAt": "2026-10-19T14:08:57.897Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,22 +20,22 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "GH+Sgx.FgEK+cp8K%kuy",
+          "id": "yhd*^L*E@_(Fc4=B,m2%",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "6;vS$e)%fHx;bD(0tt-!",
+              "id": "*nK$+V@%l8C8A+Q,CQN{",
               "next": {
                 "block": {
                   "type": "jbot_motor_run2",
-                  "id": "PBt_H2{8{cb;B]-T.Xzz",
+                  "id": "11M@F?`;;p^,`G2,xFiC",
                   "inputs": {
                     "speedL": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "KwDe%,:z@J1ucR*UJ[;I",
+                        "id": "jX4z;]nVG:K(X-@ILsap",
                         "fields": {
                           "NUM": 50
                         }
@@ -44,7 +44,7 @@
                     "speedR": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "$,WW4WW$^.!K*W%hQ6HZ",
+                        "id": "m#*#5*eEHH^p}rfbY!%?",
                         "fields": {
                           "NUM": 50
                         }
@@ -54,12 +54,12 @@
                   "next": {
                     "block": {
                       "type": "ctrl_wait",
-                      "id": "sy7t+b#*k)UFv]8(0Rl0",
+                      "id": "XjhM,H-PAUGP}.sovbSU",
                       "inputs": {
                         "SEC": {
                           "shadow": {
                             "type": "math_number",
-                            "id": "gJHEFx5dfTi}fynn:qDP",
+                            "id": "d1[%S7;:3a7t]8,Ejx*`",
                             "fields": {
                               "NUM": 1
                             }
@@ -69,7 +69,7 @@
                       "next": {
                         "block": {
                           "type": "jbot_motor_stop",
-                          "id": "M!*$0watvvsle,O!zMuX",
+                          "id": "o5HRi_PCK8xJ4O{NO^]f",
                           "fields": {
                             "type": "MOTOR_L",
                             "mode": "BRAKE"
@@ -77,7 +77,7 @@
                           "next": {
                             "block": {
                               "type": "jbot_motor_stop",
-                              "id": "%@675RWVi{/HjI:BQq$$",
+                              "id": "w0X#d+Yj#wz=)4pb[/Ik",
                               "fields": {
                                 "type": "MOTOR_R",
                                 "mode": "BRAKE"
@@ -95,7 +95,7 @@
         },
         {
           "type": "arduino_loop",
-          "id": "yUQEGL)Pky-A6(I-c:Sp",
+          "id": "Z.u:+:O5q^.[I*~M)1Px",
           "x": 80,
           "y": 362
         }
