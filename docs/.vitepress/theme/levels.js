@@ -17,19 +17,19 @@ export const LEVELS = [
     n: 2, path: '/guide/blocks/display', img: 'L2_display', stars: 1, time: '20 分鐘',
     title: '專屬電子名牌', sub: '彩燈與螢幕顯示',
     goal: '點亮紅燈，在螢幕上秀出 Hello 打招呼',
-    need: ['MBC-jBot 小車', 'OLED 螢幕模組（選購）'],
+    need: ['MBC-jBot 小車', 'OLED 小螢幕（擴充包）'],
   },
   {
     n: 3, path: '/guide/blocks/sensor', img: 'L3_sensor', stars: 2, time: '30 分鐘',
     title: '智慧防撞車', sub: '感測器與按鈕',
     goal: '前方 10 公分內有東西就自動煞車',
-    need: ['MBC-jBot 小車', '雷射測距模組（選購）', '一面牆或紙箱'],
+    need: ['MBC-jBot 小車', '雷射測距（擴充包）', '一面牆或紙箱'],
   },
   {
     n: 4, path: '/guide/blocks/remote', img: 'L4_remote', stars: 2, time: '30 分鐘',
     title: '無敵遙控機械臂', sub: 'PS2 遙控與伺服馬達',
     goal: '按下手把叉號鍵，讓伺服馬達轉到 90 度',
-    need: ['MBC-jBot 小車', 'PS2 無線手把', '伺服馬達（選購）'],
+    need: ['MBC-jBot 小車', 'PS2 無線手把', '伺服馬達（擴充包）'],
   },
   {
     n: 5, path: '/guide/blocks/advanced', img: 'L5_encoder', stars: 3, time: '30 分鐘',

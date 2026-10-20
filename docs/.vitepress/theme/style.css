@@ -251,6 +251,10 @@
 .jb-intro p { font-size: 1.08rem; color: var(--vp-c-text-2); line-height: 1.85; margin: 0; }
 @media (min-width: 760px) { .jb-intro { grid-template-columns: 340px 1fr; } }
 
+/* 加購專區按鈕列 */
+.jb-store-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 8px; }
+.vp-doc .jb-caption { margin-top: -8px; font-size: .85rem; color: var(--vp-c-text-2); text-align: center; }
+
 /* 首頁原本的特色卡 */
 .VPFeature { background: var(--jb-card) !important; border-radius: var(--jb-radius) !important; border: 2px solid var(--jb-line) !important;
   box-shadow: var(--jb-shadow); transition: transform .2s ease, border-color .2s ease; }
