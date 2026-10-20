@@ -6,8 +6,8 @@
     "id": null,
     "name": "first-program",
     "author": "",
-    "createdAt": "2026-10-19T14:08:55.778Z",
-    "modifiedAt": "2026-10-19T14:08:55.779Z",
+    "createdAt": "2026-10-20T02:51:37.071Z",
+    "modifiedAt": "2026-10-20T02:51:37.071Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,22 +20,22 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "$8`npK)MD3K9FMf:/?sV",
+          "id": "QjG`8H#a-$nyag%POtJm",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "v-s$-GvW)b*iSWSrzCMP",
+              "id": "1kFG0n?)t.Ss^]Tm}-}f",
               "next": {
                 "block": {
                   "type": "jbot_motor_run2",
-                  "id": ".7BF,WBQ]l?vo=ojxhYi",
+                  "id": "O^~[wZ$=Qm9MV;_z!UiX",
                   "inputs": {
                     "speedL": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "=*NigQl*Ca:o*}WJbCg-",
+                        "id": "LZvn?bkxS7,Gt$V/LM[(",
                         "fields": {
                           "NUM": 50
                         }
@@ -44,7 +44,7 @@
                     "speedR": {
                       "shadow": {
                         "type": "math_number",
-                        "id": "F_#bI5Q=q_]/kUl:1L@X",
+                        "id": "Ao?)_8BHjD*5[8TAQE-N",
                         "fields": {
                           "NUM": 50
                         }
@@ -54,12 +54,12 @@
                   "next": {
                     "block": {
                       "type": "ctrl_wait",
-                      "id": "dmL/*$0L)!bh.^RdfRR=",
+                      "id": "#c-$%14{?*076el3P#C|",
                       "inputs": {
                         "SEC": {
                           "shadow": {
                             "type": "math_number",
-                            "id": "hfG3k:B%|~Xg,Kl74jXp",
+                            "id": "rF8#H|/wcvE@!P:Rm]Fm",
                             "fields": {
                               "NUM": 2
                             }
@@ -69,7 +69,7 @@
                       "next": {
                         "block": {
                           "type": "jbot_motor_stop",
-                          "id": "OigIW9O|K%Rz7McJ=`gs",
+                          "id": "p4rw(w#?vs*/-/3t.O~|",
                           "fields": {
                             "type": "MOTOR_L",
                             "mode": "0"
@@ -77,7 +77,7 @@
                           "next": {
                             "block": {
                               "type": "jbot_motor_stop",
-                              "id": "vWwYXXM*4mGpXgao=]Rv",
+                              "id": "$,Snz=%/cuBSqJ|z1I%w",
                               "fields": {
                                 "type": "MOTOR_R",
                                 "mode": "0"
@@ -95,7 +95,7 @@
         },
         {
           "type": "arduino_loop",
-          "id": "G?uemJlwif$KuVE+{yB;",
+          "id": "MHWn6@LB@N4rQoE)KU8T",
           "x": 80,
           "y": 362
         }

@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson3-sensor",
     "author": "",
-    "createdAt": "2026-10-19T14:09:02.170Z",
-    "modifiedAt": "2026-10-19T14:09:02.170Z",
+    "createdAt": "2026-10-20T02:51:43.451Z",
+    "modifiedAt": "2026-10-20T02:51:43.451Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,25 +20,25 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "$jW5@T03zF4fKeF,AgAD",
+          "id": "ao#/*/+0n|4k-j2WkB2_",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "/HQEQ]+nU5K{x?EA0dcC"
+              "id": "i7XZl)WBwd4yQff=(;CU"
             }
           }
         },
         {
           "type": "arduino_loop",
-          "id": ":l{idna2H5Olyirr.@#Y",
+          "id": "e(.{Z+?c^_j|v]p:)H[)",
           "x": 80,
           "y": 164,
           "next": {
             "block": {
               "type": "controls_if",
-              "id": "%YeDJ1^T_-t8:DTgovXR",
+              "id": "F5@Cud?0G~MjI6c_ey,Y",
               "extraState": {
                 "hasElse": true
               },
@@ -46,14 +46,14 @@
                 "IF0": {
                   "shadow": {
                     "type": "core_boolean",
-                    "id": "fmS|`@*1q#YyQ]K$SjL;",
+                    "id": "l(82Lk~EOj6#H*!QVPtL",
                     "fields": {
                       "BOOL": "true"
                     }
                   },
                   "block": {
                     "type": "compare_op",
-                    "id": "fBVSZg{5t2^`/VgHuJ{S",
+                    "id": "?-GPsdXT$PnSQ0^CLnpI",
                     "fields": {
                       "OP": "LT"
                     },
@@ -61,13 +61,13 @@
                       "A": {
                         "block": {
                           "type": "jbot_laser_distance",
-                          "id": "=W)IcazOq^/,Cp`!1HYs"
+                          "id": "0%mH,ML*T0IY5{]Hb`D."
                         }
                       },
                       "B": {
                         "shadow": {
                           "type": "math_number",
-                          "id": "3EZ;vPfhEI@s+g,0Utt/",
+                          "id": "uf21w?M$c;:4WyWL.d+U",
                           "fields": {
                             "NUM": 100
                           }
@@ -79,7 +79,7 @@
                 "DO0": {
                   "block": {
                     "type": "jbot_motor_stop",
-                    "id": "@J.@U)s@4`2nXpn4khaq",
+                    "id": "m7/+l17/?=j%!w8kQ4$y",
                     "fields": {
                       "type": "MOTOR_L",
                       "mode": "BRAKE"
@@ -87,7 +87,7 @@
                     "next": {
                       "block": {
                         "type": "jbot_motor_stop",
-                        "id": "q6!h{KD8$1lXM)@c6CXC",
+                        "id": "yQ4i~1N]fW{F{N!`]hVn",
                         "fields": {
                           "type": "MOTOR_R",
                           "mode": "BRAKE"
@@ -99,12 +99,12 @@
                 "ELSE": {
                   "block": {
                     "type": "jbot_motor_run2",
-                    "id": "/v!yM6o/eQb`7thpfYeD",
+                    "id": "KO@yf4l,xJJ51x^x-OTU",
                     "inputs": {
                       "speedL": {
                         "shadow": {
                           "type": "math_number",
-                          "id": "r~.?TOkDEUTrVBf?-!=*",
+                          "id": "vX-3r2`Ap+b|am-r`?g.",
                           "fields": {
                             "NUM": 50
                           }
@@ -113,7 +113,7 @@
                       "speedR": {
                         "shadow": {
                           "type": "math_number",
-                          "id": "jLrO[J;k=IbEPsFOq5r~",
+                          "id": "=i]2]-e:4tY,~_uh^}7^",
                           "fields": {
                             "NUM": 50
                           }

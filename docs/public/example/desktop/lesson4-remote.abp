@@ -6,8 +6,8 @@
     "id": null,
     "name": "lesson4-remote",
     "author": "",
-    "createdAt": "2026-10-19T14:09:04.296Z",
-    "modifiedAt": "2026-10-19T14:09:04.296Z",
+    "createdAt": "2026-10-20T02:51:45.581Z",
+    "modifiedAt": "2026-10-20T02:51:45.581Z",
     "appVersion": "1.0.0"
   },
   "board": {
@@ -20,43 +20,43 @@
       "blocks": [
         {
           "type": "arduino_setup",
-          "id": "18PDW2|4S@zS+p@Qq@#$",
+          "id": "-L*0$lOniH(vLn@cM/*/",
           "x": 80,
           "y": 20,
           "next": {
             "block": {
               "type": "jbot_init",
-              "id": "gAr^taHI{2?LH~1VOY,o"
+              "id": "?||=o2$4oQS-(#mKqNr8"
             }
           }
         },
         {
           "type": "arduino_loop",
-          "id": "/OlR1`xm*z0$*8xoon4X",
+          "id": "oGr9NHxxN6G^Y$WZ8lk9",
           "x": 80,
           "y": 164,
           "next": {
             "block": {
               "type": "controls_if",
-              "id": "c_D35gcb5P]zP:JYDn()",
+              "id": "{b!GRpqPUfcs/-0`BhVO",
               "inputs": {
                 "IF0": {
                   "shadow": {
                     "type": "core_boolean",
-                    "id": "Y)d}9do_q(uQ?!RcN3gB",
+                    "id": "GovkV}LE[M+fXQ/JezmY",
                     "fields": {
                       "BOOL": "true"
                     }
                   },
                   "block": {
                     "type": "jbot_ps2_is_connected",
-                    "id": "-Da~#2B.qj.DT#t_(uPH"
+                    "id": "e[Q@Wq=Mx:#$X21b*K}T"
                   }
                 },
                 "DO0": {
                   "block": {
                     "type": "controls_if",
-                    "id": ";z([{`:3uNbxxA3BB~9:",
+                    "id": "Q2q)j[QD$[JscOy9Hy5!",
                     "extraState": {
                       "hasElse": true
                     },
@@ -64,14 +64,14 @@
                       "IF0": {
                         "shadow": {
                           "type": "core_boolean",
-                          "id": "RN1Ut0mZ9w0DNL[Dm9PL",
+                          "id": "vvp?:]]m}faJ`;#)b;gF",
                           "fields": {
                             "BOOL": "true"
                           }
                         },
                         "block": {
                           "type": "jbot_ps2_button",
-                          "id": "HlDiaV[5tm=Paf%t2?+P",
+                          "id": "D%HyP-xeGTJ+v47m1#3-",
                           "fields": {
                             "button": "PSB_CROSS"
                           }
@@ -80,7 +80,7 @@
                       "DO0": {
                         "block": {
                           "type": "jbot_servo_deg",
-                          "id": "WCOu`m)f*wX)pt`_(E5d",
+                          "id": "L(pyAcBrlaq,?CuA~(Rh",
                           "fields": {
                             "type": "SERVO_1"
                           },
@@ -88,7 +88,7 @@
                             "deg": {
                               "shadow": {
                                 "type": "math_number",
-                                "id": "GZ2x`=kcDtdq0sTtK*^u",
+                                "id": "ANHB{b=qsY~[_?NEUNiR",
                                 "fields": {
                                   "NUM": 90
                                 }
@@ -100,7 +100,7 @@
                       "ELSE": {
                         "block": {
                           "type": "jbot_servo_deg",
-                          "id": "mxiA;bw0H(`MnQ-G^;|[",
+                          "id": "rBEQwaysh7]|qqbhl7ie",
                           "fields": {
                             "type": "SERVO_1"
                           },
@@ -108,7 +108,7 @@
                             "deg": {
                               "shadow": {
                                 "type": "math_number",
-                                "id": "+-FYAT6hZa*L1XwqSorV",
+                                "id": "(c]X6|;GTW~#;`dc$_5A",
                                 "fields": {
                                   "NUM": 0
                                 }
