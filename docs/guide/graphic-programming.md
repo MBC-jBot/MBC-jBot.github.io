@@ -25,7 +25,7 @@ description: 在電腦安裝 MBC 圖控編程主程式，再匯入 MBC-jBot 積�
 
 ## 第二步：匯入 jBot 積木包
 
-> 📦 **<a href="/downloads/mbc_jbot.abpkz" download>點此下載 jBot 積木包（mbc_jbot.abpkz）</a>**：裡面有 jBot 專用積木和小車的函式庫，匯入一次就好。
+> 📦 **<a href="/downloads/mbc_jbot.abpkz" download>點此下載 jBot 積木包（mbc_jbot.abpkz）</a>**：裡面有 jBot 專用積木和小車的函式庫，匯入一次就好。放安裝檔的 [Google 雲端硬碟資料夾](https://drive.google.com/drive/folders/17N6sIzMt2uiSEI7hVB_qGaBW5gWlcCpo) 也有同一份。
 
 1. 打開 MBC 圖控編程，點左邊積木分類最下面的「**創建積木**」。
 2. 按「**📥 匯入積木檔**」，選擇剛剛下載的 `mbc_jbot.abpkz`。

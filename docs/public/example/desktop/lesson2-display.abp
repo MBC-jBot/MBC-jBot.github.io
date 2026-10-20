@@ -129,7 +129,7 @@
       "name": "MBC-jBot 核心套件",
       "colour": "#4C97FF",
       "author": "MBC Robot Team",
-      "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、霍爾編碼器、雙路紅外循線感測、4 顆 RGB 彩燈（SK6812，相容 WS2812）、PS2 無線手把遙控、電池電壓與開機按鈕；選購模組：VL53L0X 雷射測距、SSD1315 OLED 螢幕（英文與數字）、雙路伺服馬達（接 I2C 擴充插槽／伺服接頭，不含在基本套件）。",
+      "description": "專為雙輪差速 MBC-jBot 機器人設計，提供完整硬體驅動：雙輪 PID 距離與角度控制、霍爾編碼器、雙路紅外循線感測、4 顆 RGB 彩燈（SK6812，相容 WS2812）、PS2 無線手把遙控、電池電壓與開機按鈕；選購模組：VL53L0X 雷射測距、0.49 吋 SSD1315 OLED 螢幕（英文與數字）、雙路伺服馬達（接 I2C 擴充插槽／伺服接頭，不含在基本套件）。",
       "categories": [
         {
           "name": "jBot 運動",
@@ -254,7 +254,7 @@
           "shape": "statement",
           "message": "清空 OLED 螢幕",
           "args": [],
-          "tooltip": "清除 OLED 螢幕上所有文字（選購的 SSD1315 OLED 模組，接在 I2C 插座）",
+          "tooltip": "清除 OLED 螢幕上所有文字（擴充包的 0.49 吋 SSD1315 OLED，接在 OLED 插座）",
           "code": {
             "template": "Bot.oled_clear();",
             "requires": {
@@ -301,7 +301,7 @@
               }
             }
           ],
-          "tooltip": "在 OLED 指定位置顯示英文、數字或符號（x：0~15 欄，y：0~3 列；中文會顯示成 ?）",
+          "tooltip": "在 OLED 指定位置顯示英文、數字或符號（x：0~7 欄，y：0~1 列；中文會顯示成 ?）",
           "code": {
             "template": "Bot.oled_setCursor({X}, {Y}); Bot.oled_print({TEXT});",
             "requires": {
