@@ -61,7 +61,7 @@ MBC-jBot 內建了電池電壓偵測（透過內部 ADC 腳位）。
 
 如果想手動在程式裡讀取當前電壓，可以使用：
 ```cpp
-uint16_t voltage = Bot.getBatteryVoltage(); // 回傳轉換後的電壓數值
+uint16_t voltage = Bot.getBatteryVoltage(); // 單位毫伏 mV，例如 3700 代表 3.7V（按住按鈕時會讀到接近 0）
 ```
 
 > [!WARNING]
