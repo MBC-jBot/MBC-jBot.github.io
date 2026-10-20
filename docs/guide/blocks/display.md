@@ -1,4 +1,4 @@
-# 2. 聲光與螢幕顯示
+# 2. 彩燈與螢幕顯示
 
 MBC-jBot 不僅能跑，還能透過炫麗的 RGB 燈光與 OLED 螢幕與您互動！
 
@@ -16,7 +16,7 @@ MBC-jBot 不僅能跑，還能透過炫麗的 RGB 燈光與 OLED 螢幕與您互
 
 請參考下方的積木組合：
 
-![聲光與螢幕顯示範例](/images/web/lesson2-display.webp)
+![彩燈與螢幕顯示範例](/images/web/lesson2-display.webp)
 
 > 📥 <a href="/example/web/lesson2-display.jbot" download>下載範例檔（lesson2-display.jbot）</a>，在[網頁版](https://jbot-block-ide.mbcrobot.workers.dev)按「**開啟檔案**」打開。網頁版的「範例」選單也有「OLED 電子名牌」可以直接試。
 
@@ -33,7 +33,7 @@ MBC-jBot 不僅能跑，還能透過炫麗的 RGB 燈光與 OLED 螢幕與您互
 ::: details 💾 安裝版（MBC 圖控編程）積木畫法
 安裝版的 jBot 積木和程式結構（「**開機時執行一次**」＋「**主迴圈 (一直重複)**」）都跟網頁版一樣，只是積木的顏色和外觀略有不同。還沒安裝的話，請先看 [安裝版：MBC 圖控編程＋jBot 積木](/guide/graphic-programming)。
 
-![聲光與螢幕顯示範例（安裝版）](/images/desktop/lesson2-display.webp)
+![彩燈與螢幕顯示範例（安裝版）](/images/desktop/lesson2-display.webp)
 
 > 📥 <a href="/example/desktop/lesson2-display.abp" download>下載安裝版範例檔（lesson2-display.abp）</a>，在軟體按工具列的 📂 打開。
 :::

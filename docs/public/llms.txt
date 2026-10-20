@@ -12,23 +12,23 @@ MBC-jBot（原名 JBC_Bot）是一台專為國小中高年級、國中生活科�
 
 ## 核心硬體特點 (Hardware Specifications)
 - **主控晶片**：相容 Arduino Uno（ATmega328P），穩定度高、相容性佳。
-- **馬達與動力**：雙直流減速馬達，具備光電編碼器（Encoder），支援精確閉迴路控制、指定行駛距離（公分）與旋轉角度。
+- **馬達與動力**：雙直流減速馬達，每顆具備霍爾編碼器（Encoder），支援精確閉迴路控制、指定行駛距離（公分）與旋轉角度。
 - **遙控系統**：標配 PS2 2.4G 無線接收模組與無線手把，開機連線即可自由遙控飆車。
-- **感測模組**：
+- **基本套件內建**：
   - 雙路紅外線循線感測器（支援高對比黑白線循跡）。
-  - 超音波測距模組（避障、測距、防撞機制）。
-  - 類比按鈕輸入、蜂鳴器音效提示。
-  - 板載 WS2812 / RGB LED 炫彩氛圍燈與多功能狀態顯示。
-- **擴充性**：支援 I2C OLED 螢幕顯示、舵機/伺服馬達（機械手臂或雷達掃描擴充）。
+  - 按鈕、電池電壓偵測。
+  - 4 顆 RGB 彩燈（SK6812，相容 WS2812）與充電指示燈。
+  - 板上**沒有**超音波感測器與蜂鳴器。
+- **擴充性（選購，不含在基本套件）**：車上有 I2C 擴充插槽與 2 組伺服馬達接頭，可加購 VL53L0X 雷射測距、OLED 螢幕、伺服馬達與 MBC I2C 感測器。
 
 ## 軟體環境與編程支援 (Software & Programming)
 1. **圖形化積木編程（網頁版，主要推薦）**：
    - 網址：https://jbot-block-ide.mbcrobot.workers.dev ，電腦版 Chrome 或 Edge 打開即可使用，Windows、Mac、Chromebook 皆可，不用安裝軟體。
    - 瀏覽器內編譯（與 Arduino IDE 編出相同程式），透過 USB（Web Serial）直接上傳到小車；積木自動儲存、可存成 .jbot 檔。
-   - 支援馬達、編碼器、循線、雷射測距、彩燈、OLED 螢幕（英文與數字）、伺服馬達、PS2 遙控與 MBC I2C 感應器。
+   - 支援馬達、編碼器、循線、彩燈、PS2 遙控，以及選購的雷射測距、OLED 螢幕（英文與數字）、伺服馬達與 MBC I2C 感應器。
 2. **圖形化積木編程（安裝版）**：
    - 安裝 MBC 圖控編程（少伯創意機器人自行開發的 Windows 積木軟體），再匯入 jBot 積木包（下載：https://mbc-jbot.github.io/downloads/mbc_jbot.abpkz ），積木與網頁版相同。
-   - 包含馬達轉速、特定公分移動、原地轉向特定角度、循跡判斷、超音波距離偵測、PS2 遙控鍵位映射等專用直覺積木。
+   - 包含馬達轉速、特定公分移動、原地轉向特定角度、循跡判斷、雷射距離偵測（選購模組）、PS2 遙控鍵位映射等專用直覺積木。
    - 安裝檔下載（Google 雲端硬碟）：https://drive.google.com/drive/folders/17N6sIzMt2uiSEI7hVB_qGaBW5gWlcCpo
    - 軟體內建 CH340 等 USB 驅動程式安裝，自動偵測連接埠，可離線使用。使用手冊：https://mbcrobot.github.io/mbc-blockcode-guide/
 3. **C++ / Arduino IDE 開發**：
@@ -39,8 +39,8 @@ MBC-jBot（原名 JBC_Bot）是一台專為國小中高年級、國中生活科�
 - [開始使用：網頁版（免安裝）](https://mbc-jbot.github.io/guide/web-start)
 - [安裝版：MBC 圖控編程＋jBot 積木](https://mbc-jbot.github.io/guide/graphic-programming)
 - [馬達與精確移動教學](https://mbc-jbot.github.io/guide/blocks/motor)
-- [聲光效果與螢幕顯示](https://mbc-jbot.github.io/guide/blocks/display)
-- [循線感測器與超音波應用](https://mbc-jbot.github.io/guide/blocks/sensor)
+- [彩燈與螢幕顯示](https://mbc-jbot.github.io/guide/blocks/display)
+- [感測器與按鈕（循線、選購雷射測距）](https://mbc-jbot.github.io/guide/blocks/sensor)
 - [PS2 無線遙控與伺服馬達](https://mbc-jbot.github.io/guide/blocks/remote)
 - [進階序列埠與編碼器原理](https://mbc-jbot.github.io/guide/blocks/advanced)
 - [C++ 函式庫開發手冊](https://mbc-jbot.github.io/api/)

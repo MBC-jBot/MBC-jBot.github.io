@@ -15,7 +15,7 @@ export const LEVELS = [
   },
   {
     n: 2, path: '/guide/blocks/display', img: 'L2_display', stars: 1, time: '20 分鐘',
-    title: '專屬電子名牌', sub: '聲光與螢幕顯示',
+    title: '專屬電子名牌', sub: '彩燈與螢幕顯示',
     goal: '點亮紅燈，在螢幕上秀出 Hello 打招呼',
     need: ['MBC-jBot 小車', 'OLED 螢幕模組（選購）'],
   },
@@ -56,7 +56,7 @@ export const BANNERS = {
   '/api/setup': { img: 'api_setup', alt: '小車接上電腦與充電' },
   '/api/motor': { img: 'api_motor', alt: '車輪、馬達與編碼器' },
   '/api/sensor': { img: 'api_sensor', alt: '小車的循線與測距感測器' },
-  '/api/led-button': { img: 'api_led', alt: '彩燈、蜂鳴器與按鈕' },
+  '/api/led-button': { img: 'api_led', alt: '彩燈與按鈕' },
   '/api/ps2-servo': { img: 'api_ps2', alt: 'PS2 手把與伺服馬達' },
 };
 

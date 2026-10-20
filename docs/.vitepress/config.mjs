@@ -113,7 +113,7 @@ export default defineConfig({
         items: [
           { text: '開始使用：網頁版（免安裝）', link: '/guide/web-start' },
           { text: '1. 馬達與精確移動', link: '/guide/blocks/motor' },
-          { text: '2. 聲光與螢幕顯示', link: '/guide/blocks/display' },
+          { text: '2. 彩燈與螢幕顯示', link: '/guide/blocks/display' },
           { text: '3. 感測器與按鈕', link: '/guide/blocks/sensor' },
           { text: '4. PS2 遙控與伺服馬達', link: '/guide/blocks/remote' },
           { text: '5. 進階：序列埠與編碼器', link: '/guide/blocks/advanced' },
@@ -132,7 +132,7 @@ export default defineConfig({
           { text: '環境安裝與初始化', link: '/api/setup' },
           { text: '馬達與編碼器', link: '/api/motor' },
           { text: '感測器應用', link: '/api/sensor' },
-          { text: '聲光與互動', link: '/api/led-button' },
+          { text: '彩燈與按鈕', link: '/api/led-button' },
           { text: 'PS2 遙控與伺服馬達', link: '/api/ps2-servo' }
         ]
       },
