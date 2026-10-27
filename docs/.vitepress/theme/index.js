@@ -3,9 +3,10 @@ import DefaultTheme from 'vitepress/theme'
 import AdventureHome from './components/AdventureHome.vue'
 import DocTop from './components/DocTop.vue'
 import LevelClear from './components/LevelClear.vue'
+import NotFound from './components/NotFound.vue'
 import './style.css'
 
-// 闖關冒險風：首頁加出發方式＋冒險地圖，內頁上方任務卡／插圖、下方過關按鈕
+// 闖關冒險風：首頁加出發方式＋冒險地圖，內頁上方任務卡／插圖、下方過關按鈕；404 頁改中文並分辨離線
 export default {
   extends: DefaultTheme,
   Layout() {
@@ -13,6 +14,7 @@ export default {
       'home-hero-after': () => h(AdventureHome),
       'doc-before': () => h(DocTop),
       'doc-footer-before': () => h(LevelClear),
+      'not-found': () => h(NotFound),
     })
   },
 }
